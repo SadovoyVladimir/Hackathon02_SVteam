@@ -1,3 +1,4 @@
+import React from 'react'
 import { Navigate } from 'react-router-dom'
 import MainPage from './components/page/MainPage'
 import MemberLayout from './layouts/MemberLayout'
