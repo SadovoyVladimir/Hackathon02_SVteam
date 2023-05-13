@@ -2,19 +2,11 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import Button from '../common/button'
 
-export default function UserCard({
-  name,
-  age,
-  additionalInfo,
-  devTask,
-  arrSocialMediaLinks,
-  img,
-  birthday
-}) {
-  const [favourites, setFavourites] = useState(false)
+export default function UserCard({ ...member }) {
+  const [favourites, setFavourites] = useState(true)
 
   const handleFavourite = () => {
-    localStorage.setItem(name, !favourites)
+    localStorage.setItem(member.name, !favourites)
     setFavourites(!favourites)
   }
 
@@ -49,8 +41,8 @@ export default function UserCard({
 
       <img
         className='card-img-top'
-        src={img}
-        alt='Card cap'
+        // src={img}
+        alt={member.img}
         style={{
           width: '10rem',
           height: '10rem',
@@ -59,16 +51,14 @@ export default function UserCard({
         }}
       />
       <div className='card-body'>
-        <h5 className='card-title'>{name}</h5>
-        <h4 className='card-title'>{`${age} года/лет`}</h4>
-        <h4 className='card-title'>О себе</h4>
-        <p className='card-text'>{additionalInfo}</p>
-        {/* <p>В разработке занимаюсь: {devTask}</p> */}
+        <h5 className='card-title'>{member.name}</h5>
+        <h4 className='card-title'>{`${member.age} года/лет`}</h4>
+        <h4 className='card-title'>{member.about.content}</h4>
         <div className='acontainer' style={{ margin: '0 auto' }}>
-          {arrSocialMediaLinks.map((obj) => {
+          {member.sotialNetworcs.map((member) => {
             return (
-              <span style={{ marginLeft: '1rem' }}>
-                <Button key={obj.name} buttonName={obj.name} />
+              <span>
+                <Button key={member.id} buttonName={member.label} />
               </span>
             )
           })}
