@@ -8,15 +8,6 @@ import Button from '../common/button'
 import { useLocation } from 'react-router-dom'
 
 export default function MainPage() {
-  // const [listVisual, setListVisual] = useState(true)
-
-  // const { pathname } = useLocation()
-  // console.log(pathname)
-
-  // const handleTransformList = () => {
-  //   // localStorage.setItem('configList', listVisual)
-  //   setListVisual(!listVisual)
-  // }
 
   const team2 = {
     id: 'number',
@@ -124,16 +115,10 @@ export default function MainPage() {
         title={team.taskTitle}
         description={team.description}
       />
-      {/* <Button
-        handler={handleTransformList}
-        buttonName={'Изменить вид списка'}
-        className='mb-4'
-      /> */}
       <MembersList
         allUsers={allUsers}
         // visualConfig={listVisual ? 'firstConfig' : 'secondConfig'}
       />
-      <TextField label={'текстовое поле'} htmlFor={''} name={'name'} />
     </>
   )
 }
