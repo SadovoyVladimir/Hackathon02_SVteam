@@ -8,14 +8,15 @@ const firstConfiguration = {
   width: '100%',
   display: 'flex',
   justifyContent: 'space-between',
-  flexDirection: 'row'
+  flexDirection: 'row',
+  marginTop: '1rem'
 }
 
 const secondConfiguration = {
-  width: '100rem',
+  width: '100%',
   display: 'flex',
-  justifyContent: 'space-between',
-  flexDirection: 'column'
+  flexDirection: 'column',
+  marginTop: '1rem'
 }
 
 const MembersList = ({ allUsers }) => {
@@ -59,7 +60,14 @@ const MembersList = ({ allUsers }) => {
       <div className='' style={styleList}>
         {allUsers &&
           allUsers.map((member) => {
-            return <UserCard key={member.id} {...member} favourites={true} />
+            return (
+              <UserCard
+                key={member.id}
+                {...member}
+                favourites={true}
+                configureList={configureList}
+              />
+            )
           })}
       </div>{' '}
     </>
