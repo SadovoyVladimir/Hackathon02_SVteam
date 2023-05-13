@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+import Button from '../common/button'
 
 export default function UserCard({
   name,
@@ -7,8 +8,28 @@ export default function UserCard({
   additionalInfo,
   devTask,
   arrSocialMediaLinks,
-  img
+  img,
+  birthday
 }) {
+  const [favourites, setFavourites] = useState(false)
+
+  const handleFavourite = () => {
+    localStorage.setItem(name, !favourites)
+    setFavourites(!favourites)
+  }
+
+  // const ageTransform = (birthday) => {
+  //   const now = new Date()
+  //   // console.log(now)
+  //   const day = now.getDate()
+  //   const month = now.getMonth() + 1
+  //   const year = now.getFullYear()
+
+  //   console.log(day)
+  //   console.log(birthday)
+  // }
+
+  // ageTransform(birthday)
   return (
     <div
       className='card'
@@ -19,6 +40,13 @@ export default function UserCard({
         padding: '1rem'
       }}
     >
+      <Button
+        buttonName={
+          favourites ? 'Добавить в избранное' : 'Удалить из избранного'
+        }
+        handler={handleFavourite}
+      />
+
       <img
         className='card-img-top'
         src={img}
@@ -61,5 +89,6 @@ UserCard.propTypes = {
   additionalInfo: PropTypes.string,
   devTask: PropTypes.string,
   arrSocialMediaLinks: PropTypes.array,
-  img: PropTypes.string
+  img: PropTypes.string,
+  birthday: PropTypes.string
 }
