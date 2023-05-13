@@ -1,22 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import Button from '../common/button'
+import {
+  getMembersIdInLocalStorage,
+  toggleMemberToLocalStorage
+} from '../../services/localStorage.service'
 
 export default function UserCard({
+  id,
+  img,
   name,
   age,
-  additionalInfo,
-  devTask,
-  arrSocialMediaLinks,
-  img,
-  birthday
+  about,
+  sotialNetworcs
 }) {
-  const [favourites, setFavourites] = useState(false)
-
+  const [favourites, setFavourites] = useState(true)
   const handleFavourite = () => {
-    localStorage.setItem(name, !favourites)
+    toggleMemberToLocalStorage(id)
     setFavourites(!favourites)
   }
+
+  useEffect(() => {
+    const favouritesIds = getMembersIdInLocalStorage('favourites2')
+    if (favouritesIds.find((el) => el == id)) {
+      setFavourites(false)
+    }
+  }, [])
 
   // const ageTransform = (birthday) => {
   //   const now = new Date()
@@ -44,13 +53,14 @@ export default function UserCard({
         buttonName={
           favourites ? 'Добавить в избранное' : 'Удалить из избранного'
         }
+        buttonColor={favourites ? 'success' : 'dark'}
         handler={handleFavourite}
       />
 
       <img
         className='card-img-top'
         src={img}
-        alt='Card cap'
+        alt={img}
         style={{
           width: '10rem',
           height: '10rem',
@@ -60,21 +70,14 @@ export default function UserCard({
       />
       <div className='card-body'>
         <h5 className='card-title'>{name}</h5>
-        <h4 className='card-title'>{`${age} года/лет`}</h4>
-        <h4 className='card-title'>О себе</h4>
-        <p className='card-text'>{additionalInfo}</p>
-        {/* <p>В разработке занимаюсь: {devTask}</p> */}
+        <h4 className='card-title'>{age}</h4>
+        <h4 className='card-title'>{about.content}</h4>
         <div className='acontainer' style={{ margin: '0 auto' }}>
-          {arrSocialMediaLinks.map((obj) => {
+          {sotialNetworcs.map((link) => {
             return (
-              <a
-                href='/'
-                className='btn btn-primary'
-                style={{ marginLeft: '1rem' }}
-                key={obj.name}
-              >
-                {obj.name}
-              </a>
+              <span key={link.id}>
+                <Button key={link.id} buttonName={link.label} />
+              </span>
             )
           })}
         </div>
@@ -84,11 +87,9 @@ export default function UserCard({
 }
 
 UserCard.propTypes = {
-  name: PropTypes.string,
-  age: PropTypes.number,
-  additionalInfo: PropTypes.string,
-  devTask: PropTypes.string,
-  arrSocialMediaLinks: PropTypes.array,
-  img: PropTypes.string,
-  birthday: PropTypes.string
+  id: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  about: PropTypes.object.isRequired,
+  sotialNetworcs: PropTypes.array.isRequired
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Badge = ({ color = 'primary', content }) => {
-  return <span className={`badge bg-${color}`}>{content}</span>
+  return <span className={`badge bg-${color} m-1`}>{content}</span>
 }
 
 Badge.propTypes = {
