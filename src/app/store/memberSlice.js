@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createAction, createSlice } from '@reduxjs/toolkit'
 import memberService from '../services/member.service'
 
 const membersSlice = createSlice({
@@ -27,18 +27,36 @@ const membersSlice = createSlice({
         state.entities = []
       }
       state.entities.push(action.payload)
-    },
+    }
   }
 })
 const { reducer: membersReducer, actions } = membersSlice
 
-const { membersRequested, membersRecieved, membersRequestFailed } = actions
+const {
+  membersRequested,
+  membersRecieved,
+  membersRequestFailed,
+  memberCreated
+} = actions
+
+const memberCreateRequested = createAction('members/memberCreateRequested')
+const createMemberFailed = createAction('members/createMemberFailed')
 
 function isOutdated(date) {
   if (Date.now() - date > 10 * 60 * 1000) {
     return true
   }
   return false
+}
+
+export const createUser = (payload) => async (dispatch) => {
+  dispatch(memberCreateRequested())
+  try {
+    const { data } = await memberService.create(payload)
+    dispatch(memberCreated(data))
+  } catch (error) {
+    dispatch(createMemberFailed(error.message))
+  }
 }
 
 export const loadMembersList = () => async (dispatch, getState) => {
@@ -56,8 +74,7 @@ export const loadMembersList = () => async (dispatch, getState) => {
 }
 
 export const getMembers = () => (state) => state.members.entities
-export const getMembersLoadingStatus = () => (state) =>
-  state.members.isLoading
+export const getMembersLoadingStatus = () => (state) => state.members.isLoading
 export const getMemberById = (memberId) => (state) => {
   if (state.members.entities) {
     let member
