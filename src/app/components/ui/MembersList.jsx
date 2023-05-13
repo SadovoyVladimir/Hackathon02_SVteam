@@ -50,22 +50,22 @@ const MembersList = () => {
         flexDirection: 'row'
       }}
     >
-      {arrUsers.map((obj) => {
+      {arrUsers.map((member) => {
         return (
           <UserCard
-            key={obj.id}
+            key={member.id}
             favourites={true}
-            name={obj.name}
-            age={obj.age}
-            additionalInfo={obj.about.content}
-            devTask={obj.features[0].label}
+            name={member.name}
+            age={member.age}
+            additionalInfo={member.about.content}
+            devTask={member.features[0].label}
             arrSocialMediaLinks={[
               { name: 'vk', link: 'vk.com' },
               { name: 'tg', link: 'tg.com' },
               { name: 'facebook', link: 'facebook.com' }
             ]}
             img={
-              obj.img &&
+              member.img &&
               'https://yt3.googleusercontent.com/E424mRX4iziWCVVamYbAUt4z70Jz-BtQyprcgcFMOeks8CHtyRh7-U9QnGYqHBw8ZTeZtvF5=s900-c-k-c0x00ffffff-no-rj'
             }
           />
