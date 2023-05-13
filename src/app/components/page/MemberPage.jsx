@@ -6,6 +6,7 @@ import UserInfoCard from '../ui/UserInfoCard'
 
 export default function MemberPage() {
   const { users } = api
+
   const userId = 1
   const user = users.find(user => user.id === userId)
   return (
@@ -14,6 +15,7 @@ export default function MemberPage() {
       <div className="container">
         <div className="row">
           <UserImageCard
+            id={user.id}
             name = {user.name}
             img = {user.img}
             lastName = {user.lastName}
@@ -22,6 +24,7 @@ export default function MemberPage() {
             country = {user.addres.country}
           />
           <UserInfoCard
+            id={user.id}
             team={user.hackathonTeam}
             about={user.about}
             skills={user.skills}

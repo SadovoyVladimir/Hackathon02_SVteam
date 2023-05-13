@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Badge from '../common/badge'
 
 const UserInfoCard = ({
+    id,
     about,
     skills,
     team,
@@ -44,6 +45,7 @@ const UserInfoCard = ({
 }
 
 UserInfoCard.propTypes = {
+    id: PropTypes.number,
     about: PropTypes.array,
     skills: PropTypes.array,
     team: PropTypes.string,
