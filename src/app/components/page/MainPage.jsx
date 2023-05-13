@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import UserCard from '../ui/UserCard'
 import TextField from '../common/form/TextField'
-import ListUserCards from '../ui/ListUserCards'
+import ListUserCards from '../ui/MembersList'
+import MembersList from '../ui/MembersList'
 
 export default function MainPage() {
   // useEffect(() => {
@@ -12,7 +13,7 @@ export default function MainPage() {
   return (
     <>
       <h1>Main page</h1>
-      <ListUserCards />
+      <MembersList />
       {/* <UserCard
         favourites={true}
         name={'Игорь Жигалов'}

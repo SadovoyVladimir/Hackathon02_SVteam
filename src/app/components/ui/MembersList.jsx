@@ -1,7 +1,7 @@
 import React from 'react'
 import UserCard from './UserCard'
 
-const ListUserCards = () => {
+const MembersList = () => {
   const team = {
     id: 'number',
     img: 'URL',
@@ -75,4 +75,4 @@ const ListUserCards = () => {
   )
 }
 
-export default ListUserCards
+export default MembersList
