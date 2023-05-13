@@ -61,10 +61,10 @@ export default function UserCard({
         <h4 className='card-title'>{age}</h4>
         <h4 className='card-title'>{about.content}</h4>
         <div className='acontainer' style={{ margin: '0 auto' }}>
-          {sotialNetworcs.map((member) => {
+          {sotialNetworcs.map((link) => {
             return (
-              <span key={member.id}>
-                <Button key={member.id} buttonName={member.label} />
+              <span key={link.id}>
+                <Button key={link.id} buttonName={link.label} />
               </span>
             )
           })}
