@@ -5,6 +5,7 @@ import MemberLayout from './layouts/MemberLayout'
 import MemberPage from './components/page/MemberPage'
 import FavoritesLayout from './layouts/FavoritesLayout'
 import FavoritesPage from './components/page/FavoritesPage'
+import AuthLayout from './layouts/AuthLayout'
 
 const routes = [
   { path: '/', element: <MainPage /> },
@@ -23,6 +24,11 @@ const routes = [
       { path: '', element: <FavoritesPage /> },
       { path: '*', element: <Navigate to='/favorites' /> }
     ]
+  },
+  {
+    path: 'auth/:type',
+    element: <AuthLayout />,
+    children: [{ path: '*', element: <Navigate to='/auth/signup' /> }]
   },
   { path: '*', element: <Navigate to='/' /> }
 ]
