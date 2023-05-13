@@ -19,32 +19,32 @@
 
 //     return (
 //         <>
-//             <div
-//                 className='card mt-2'
-//                 style={{
-//                     width: '25rem',
-//                     alignItems: 'center',
-//                     textAlign: 'center',
-//                     padding: '1rem'
-//                 }}
-//                 >
-//                 <img
-//                     className='card-img-top'
-//                     src={imgURL}
-//                     alt='Card cap'
-//                     style={{
-//                     width: '10rem',
-//                     height: '10rem',
-//                     borderRadius: '50%',
-//                     margin: 'o auto'
-//                     }}
-//                 />
-//                 <div className='card-body'>
-//                     <h3 className='card-title text-dark'>{userName}</h3>
-//                     <h5 className='card-title text-secondary'>{`${userAge} года/лет`}</h5>
-//                     <h5 className='card-title text-secondary'>{`Город: ${city}`}</h5>
-//                 </div>
-//             </div>
+            // <div
+            //     className='card mt-2'
+            //     style={{
+            //         width: '25rem',
+            //         alignItems: 'center',
+            //         textAlign: 'center',
+            //         padding: '1rem'
+            //     }}
+            //     >
+            //     <img
+            //         className='card-img-top'
+            //         src={imgURL}
+            //         alt='Card cap'
+            //         style={{
+            //         width: '10rem',
+            //         height: '10rem',
+            //         borderRadius: '50%',
+            //         margin: 'o auto'
+            //         }}
+            //     />
+            //     <div className='card-body'>
+            //         <h3 className='card-title text-dark'>{userName}</h3>
+            //         <h5 className='card-title text-secondary'>{`${userAge} года/лет`}</h5>
+            //         <h5 className='card-title text-secondary'>{`Город: ${city}`}</h5>
+            //     </div>
+            // </div>
 //             <div
 //                 className='card mt-2'
 //                 style={{

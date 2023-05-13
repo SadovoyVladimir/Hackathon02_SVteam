@@ -47,7 +47,7 @@ export default function UserCard({
 
       <img
         className='card-img-top'
-        // src={img}
+        src={img}
         alt={img}
         style={{
           width: '10rem',

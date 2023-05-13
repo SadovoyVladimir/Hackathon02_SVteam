@@ -6,13 +6,6 @@ import api from '../../../api'
 import MembersList from '../ui/MembersList'
 
 export default function MainPage() {
-  // useEffect(() => {
-
-  //   localStorage.getItem('favourites')
-  // }, [])
-
-  // console.log('users', api.users)
-  // console.log('team', api.team)
 
   const { users, team } = api
 
@@ -25,7 +18,7 @@ export default function MainPage() {
         title={team.taskTitle}
         description={team.description}
       />
-      <UserCard
+      {/* <UserCard
         favourites={true}
         name={'Игорь Жигалов'}
         age={24}
@@ -40,7 +33,7 @@ export default function MainPage() {
         img={
           'https://yt3.googleusercontent.com/E424mRX4iziWCVVamYbAUt4z70Jz-BtQyprcgcFMOeks8CHtyRh7-U9QnGYqHBw8ZTeZtvF5=s900-c-k-c0x00ffffff-no-rj'
         }
-      />
+      /> */}
       <MembersList />
       <TextField label={'текстовое поле'} htmlFor={''} name={'name'} />
     </>
