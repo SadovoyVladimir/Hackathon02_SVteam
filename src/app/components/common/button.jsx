@@ -21,7 +21,7 @@ const Button = ({
 Button.propTypes = {
   buttonColor: PropTypes.string,
   handler: PropTypes.func,
-  buttonName: PropTypes.string,
+  buttonName: PropTypes.string.isRequired,
   buttonType: PropTypes.string
 }
 
