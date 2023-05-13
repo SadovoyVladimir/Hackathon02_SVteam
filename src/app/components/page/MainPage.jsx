@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import UserCard from '../ui/UserCard'
 import TextField from '../common/form/TextField'
+import ListUserCards from '../ui/ListUserCards'
 
 export default function MainPage() {
   // useEffect(() => {
@@ -11,7 +12,8 @@ export default function MainPage() {
   return (
     <>
       <h1>Main page</h1>
-      <UserCard
+      <ListUserCards />
+      {/* <UserCard
         favourites={true}
         name={'Игорь Жигалов'}
         age={24}
@@ -26,7 +28,7 @@ export default function MainPage() {
         img={
           'https://yt3.googleusercontent.com/E424mRX4iziWCVVamYbAUt4z70Jz-BtQyprcgcFMOeks8CHtyRh7-U9QnGYqHBw8ZTeZtvF5=s900-c-k-c0x00ffffff-no-rj'
         }
-      />
+      /> */}
       <TextField label={'текстовое поле'} htmlFor={''} name={'name'} />
     </>
   )

@@ -67,14 +67,9 @@ export default function UserCard({
         <div className='acontainer' style={{ margin: '0 auto' }}>
           {arrSocialMediaLinks.map((obj) => {
             return (
-              <a
-                href='/'
-                className='btn btn-primary'
-                style={{ marginLeft: '1rem' }}
-                key={obj.name}
-              >
-                {obj.name}
-              </a>
+              <span style={{ marginLeft: '1rem' }}>
+                <Button key={obj.name} buttonName={obj.name} />
+              </span>
             )
           })}
         </div>
@@ -85,7 +80,7 @@ export default function UserCard({
 
 UserCard.propTypes = {
   name: PropTypes.string,
-  age: PropTypes.number,
+  age: PropTypes.string,
   additionalInfo: PropTypes.string,
   devTask: PropTypes.string,
   arrSocialMediaLinks: PropTypes.array,
