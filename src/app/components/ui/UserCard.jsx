@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import Button from '../common/button'
+import {
+  getMembersIdInLocalStorage,
+  toggleMemberToLocalStorage
+} from '../../services/localStorage.service'
 
 export default function UserCard({
   id,
@@ -12,9 +16,16 @@ export default function UserCard({
 }) {
   const [favourites, setFavourites] = useState(true)
   const handleFavourite = () => {
-    localStorage.setItem(id, !favourites)
+    toggleMemberToLocalStorage(id)
     setFavourites(!favourites)
   }
+
+  useEffect(() => {
+    const favouritesIds = getMembersIdInLocalStorage('favourites2')
+    if (favouritesIds.find((el) => el == id)) {
+      setFavourites(false)
+    }
+  }, [])
 
   // const ageTransform = (birthday) => {
   //   const now = new Date()
@@ -42,6 +53,7 @@ export default function UserCard({
         buttonName={
           favourites ? 'Добавить в избранное' : 'Удалить из избранного'
         }
+        buttonColor={favourites ? 'success' : 'dark'}
         handler={handleFavourite}
       />
 
