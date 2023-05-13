@@ -12,7 +12,7 @@ const MembersList = () => {
   }
 
   const user1 = {
-    id: 1,
+    id: '1',
     img: 'URL',
     name: 'name',
     lastName: 'last name',
@@ -32,7 +32,7 @@ const MembersList = () => {
       img: 'URL'
     },
     role: 'role in progect',
-    features: [{ id: 'number', label: 'label' }],
+    features: [{ id: 'number1', label: 'label' }],
     skills: [
       // {id: "skills.id"}, // реализация через отдельную сущность
       { id: 'number', label: 'label' }
@@ -40,7 +40,7 @@ const MembersList = () => {
   }
 
   const user2 = {
-    id: 2,
+    id: '2',
     img: 'URL',
     name: '2',
     lastName: 'last name',
@@ -52,7 +52,7 @@ const MembersList = () => {
     hackathonTeam: { id: team.id },
     sotialNetworcs: [
       // {id: sotialNetworcs.id} // реализация через отдельную сущность
-      { id: 'number', label: 'label', url: 'URL', img: 'URL' }
+      { id: 'number2', label: 'label', url: 'URL', img: 'URL' }
     ],
     about: {
       id: 'number',
@@ -68,7 +68,7 @@ const MembersList = () => {
   }
 
   const user3 = {
-    id: 3,
+    id: '3',
     img: 'URL',
     name: '3',
     lastName: 'last name',
@@ -80,7 +80,7 @@ const MembersList = () => {
     hackathonTeam: { id: team.id },
     sotialNetworcs: [
       // {id: sotialNetworcs.id} // реализация через отдельную сущность
-      { id: 'number', label: 'label', url: 'URL', img: 'URL' }
+      { id: 'number3', label: 'label', url: 'URL', img: 'URL' }
     ],
     about: {
       id: 'number',

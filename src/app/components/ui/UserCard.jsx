@@ -2,11 +2,17 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import Button from '../common/button'
 
-export default function UserCard({ ...member }) {
+export default function UserCard({
+  id,
+  img,
+  name,
+  age,
+  about,
+  sotialNetworcs
+}) {
   const [favourites, setFavourites] = useState(true)
-
   const handleFavourite = () => {
-    localStorage.setItem(member.name, !favourites)
+    localStorage.setItem(id, !favourites)
     setFavourites(!favourites)
   }
 
@@ -42,7 +48,7 @@ export default function UserCard({ ...member }) {
       <img
         className='card-img-top'
         // src={img}
-        alt={member.img}
+        alt={img}
         style={{
           width: '10rem',
           height: '10rem',
@@ -51,13 +57,13 @@ export default function UserCard({ ...member }) {
         }}
       />
       <div className='card-body'>
-        <h5 className='card-title'>{member.name}</h5>
-        <h4 className='card-title'>{`${member.age} года/лет`}</h4>
-        <h4 className='card-title'>{member.about.content}</h4>
+        <h5 className='card-title'>{name}</h5>
+        <h4 className='card-title'>{age}</h4>
+        <h4 className='card-title'>{about.content}</h4>
         <div className='acontainer' style={{ margin: '0 auto' }}>
-          {member.sotialNetworcs.map((member) => {
+          {sotialNetworcs.map((member) => {
             return (
-              <span>
+              <span key={member.id}>
                 <Button key={member.id} buttonName={member.label} />
               </span>
             )
@@ -69,11 +75,9 @@ export default function UserCard({ ...member }) {
 }
 
 UserCard.propTypes = {
-  name: PropTypes.string,
-  age: PropTypes.string,
-  additionalInfo: PropTypes.string,
-  devTask: PropTypes.string,
-  arrSocialMediaLinks: PropTypes.array,
-  img: PropTypes.string,
-  birthday: PropTypes.string
+  id: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  about: PropTypes.object.isRequired,
+  sotialNetworcs: PropTypes.array.isRequired
 }
