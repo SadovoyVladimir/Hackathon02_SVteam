@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import UserCard from '../ui/UserCard'
 
 export default function MainPage() {
+  // useEffect(() => {
+
+  //   localStorage.getItem('favourites')
+  // }, [])
+
   return (
     <>
       <h1>Main page</h1>
       <UserCard
+        favourites={true}
         name={'Игорь Жигалов'}
         age={24}
+        birthday={'26.02.1999'}
         additionalInfo={'Какая-либо дополнительная информация'}
         devTask={'Созданием карточки'}
         arrSocialMediaLinks={[
