@@ -1,8 +1,9 @@
 import React from 'react'
-import withRouter from './components/ui/hoc/withRouter'
 import { useRoutes } from 'react-router-dom'
 import routes from './routes'
+import withRouter from './components/ui/hoc/withRouter'
 import NavBar from './components/ui/NavBar'
+import withRedux from './components/ui/hoc/withRedux'
 
 function App() {
   const elements = useRoutes(routes)
@@ -15,5 +16,5 @@ function App() {
   )
 }
 
-const AppWithRouter = withRouter(App)
-export default AppWithRouter
+const AppWithRouterAndRedux = withRedux(withRouter(App))
+export default AppWithRouterAndRedux

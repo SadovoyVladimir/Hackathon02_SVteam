@@ -1,37 +1,36 @@
-const team = {
-    id: "number",
-    img: "URL",
-    groupName: "Group name",
-    hackathonTeamName: "number",
-    taskTitle: "name",
-    description: "description",
+export const team = {
+  id: 'number',
+  img: 'URL',
+  groupName: 'Group name',
+  hackathonTeamNumber: 'Team number',
+  taskTitle: 'Title',
+  description: 'description'
 }
 
-const user = {
-    img: "URL",
-    name: "name",
-    lastName: "last name",
-    age: "number",
-    addres: {
-        country: "country",
-        city: "city"
-    },
-    hackathonTeam: {id: team.id},
-    sotialNetworcs: [
-        // {id: sotialNetworcs.id} // реализация через отдельную сущность
-        {id: "number", label: "label", url: "URL", img: "URL"}
-    ],
-    about: {
-        id: "number", content: "text", img: "URL"
-    },
-    role: "role in progect",
-    features: [
-        {id: "number", label: "label"}
-    ],
-    skills: [
-        // {id: "skills.id"}, // реализация через отдельную сущность
-        {id: "number", label: "label"}
-    ]
+export const member = {
+  id: 'number',
+  img: 'URL',
+  name: 'name',
+  lastName: 'last name',
+  age: 'number',
+  address: {
+    country: 'country',
+    city: 'city'
+  },
+  hackathonTeamNumber: 'Team number',
+  linksToSocialNetworks: [
+    { id: 'number', label: 'label', url: 'URL', img: 'URL' }
+  ],
+  about: [
+    {
+      id: 'number',
+      content: 'text',
+      img: 'URL'
+    }
+  ],
+  role: 'role in project',
+  features: [{ id: 'number', label: 'label' }],
+  skills: [{ id: 'number', name: 'name', value: 'number' }]
 }
 
 // Бонусом можно реализовать через разные сущности
