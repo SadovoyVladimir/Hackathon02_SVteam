@@ -11,7 +11,8 @@ const MembersList = () => {
     description: 'description'
   }
 
-  const user = {
+  const user1 = {
+    id: '1',
     img: 'URL',
     name: 'name',
     lastName: 'last name',
@@ -31,6 +32,34 @@ const MembersList = () => {
       img: 'URL'
     },
     role: 'role in progect',
+    features: [{ id: 'number1', label: 'label' }],
+    skills: [
+      // {id: "skills.id"}, // реализация через отдельную сущность
+      { id: 'number', label: 'label' }
+    ]
+  }
+
+  const user2 = {
+    id: '2',
+    img: 'URL',
+    name: '2',
+    lastName: 'last name',
+    age: 'number',
+    addres: {
+      country: 'country',
+      city: 'city'
+    },
+    hackathonTeam: { id: team.id },
+    sotialNetworcs: [
+      // {id: sotialNetworcs.id} // реализация через отдельную сущность
+      { id: 'number2', label: 'label', url: 'URL', img: 'URL' }
+    ],
+    about: {
+      id: 'number',
+      content: 'text',
+      img: 'URL'
+    },
+    role: 'role in progect',
     features: [{ id: 'number', label: 'label' }],
     skills: [
       // {id: "skills.id"}, // реализация через отдельную сущность
@@ -38,7 +67,35 @@ const MembersList = () => {
     ]
   }
 
-  const arrUsers = [user, user, user]
+  const user3 = {
+    id: '3',
+    img: 'URL',
+    name: '3',
+    lastName: 'last name',
+    age: 'number',
+    addres: {
+      country: 'country',
+      city: 'city'
+    },
+    hackathonTeam: { id: team.id },
+    sotialNetworcs: [
+      // {id: sotialNetworcs.id} // реализация через отдельную сущность
+      { id: 'number3', label: 'label', url: 'URL', img: 'URL' }
+    ],
+    about: {
+      id: 'number',
+      content: 'text',
+      img: 'URL'
+    },
+    role: 'role in progect',
+    features: [{ id: 'number', label: 'label' }],
+    skills: [
+      // {id: "skills.id"}, // реализация через отдельную сущность
+      { id: 'number', label: 'label' }
+    ]
+  }
+
+  const arrUsers = [user1, user2, user3]
 
   return (
     <div
@@ -51,25 +108,7 @@ const MembersList = () => {
       }}
     >
       {arrUsers.map((member) => {
-        return (
-          <UserCard
-            key={member.id}
-            favourites={true}
-            name={member.name}
-            age={member.age}
-            additionalInfo={member.about.content}
-            devTask={member.features[0].label}
-            arrSocialMediaLinks={[
-              { name: 'vk', link: 'vk.com' },
-              { name: 'tg', link: 'tg.com' },
-              { name: 'facebook', link: 'facebook.com' }
-            ]}
-            img={
-              member.img &&
-              'https://yt3.googleusercontent.com/E424mRX4iziWCVVamYbAUt4z70Jz-BtQyprcgcFMOeks8CHtyRh7-U9QnGYqHBw8ZTeZtvF5=s900-c-k-c0x00ffffff-no-rj'
-            }
-          />
-        )
+        return <UserCard key={member.id} {...member} favourites={true} />
       })}
     </div>
   )
