@@ -71,15 +71,16 @@ export default function UserCard({
       <div className='card-body'>
         <h5 className='card-title'>{name}</h5>
         <h4 className='card-title'>{age}</h4>
-        <h4 className='card-title'>{about.content}</h4>
+        <h4 className='card-title'>{'about.content'}</h4>
         <div className='acontainer' style={{ margin: '0 auto' }}>
-          {sotialNetworcs.map((link) => {
-            return (
-              <span key={link.id}>
-                <Button key={link.id} buttonName={link.label} />
-              </span>
-            )
-          })}
+          {sotialNetworcs &&
+            sotialNetworcs.map((link) => {
+              return (
+                <span key={link.id}>
+                  <Button key={link.id} buttonName={link.label} />
+                </span>
+              )
+            })}
         </div>
       </div>
     </div>
