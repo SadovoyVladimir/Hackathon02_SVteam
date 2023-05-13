@@ -24,6 +24,14 @@ export default function NavBar() {
               Favorites
             </NavLink>
           </li>
+          <li className='me-2 '>
+            <NavLink
+              to='/auth/signup'
+              className='text-white text-decoration-none'
+            >
+              Sign up
+            </NavLink>
+          </li>
         </ul>
       </div>
     </nav>

@@ -50,7 +50,7 @@ export default function UserCard({
       <img
         className='card-img-top'
         src={img}
-        alt='Card image cap'
+        alt='Card cap'
         style={{
           width: '10rem',
           height: '10rem',
@@ -64,11 +64,11 @@ export default function UserCard({
         <h4 className='card-title'>О себе</h4>
         <p className='card-text'>{additionalInfo}</p>
         <p>В разработке занимаюсь: {devTask}</p>
-        <div className='aContainer' style={{ margin: '0 auto' }}>
+        <div className='acontainer' style={{ margin: '0 auto' }}>
           {arrSocialMediaLinks.map((obj) => {
             return (
               <a
-                href='#'
+                href='/'
                 className='btn btn-primary'
                 style={{ marginLeft: '1rem' }}
                 key={obj.name}
