@@ -40,7 +40,7 @@
 //                     }}
 //                 />
 //                 <div className='card-body'>
-//                     <h3 className='card-title text-dark'>{userName}</h3> 
+//                     <h3 className='card-title text-dark'>{userName}</h3>
 //                     <h5 className='card-title text-secondary'>{`${userAge} года/лет`}</h5>
 //                     <h5 className='card-title text-secondary'>{`Город: ${city}`}</h5>
 //                 </div>
@@ -74,5 +74,5 @@
 //         </>
 //     );
 // }
- 
+
 // export default UserInterface;
