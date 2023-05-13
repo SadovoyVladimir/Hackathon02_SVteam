@@ -1,12 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ProgressBar = ({
-  name,
-  value,
-  color = 'primary',
-  isAnimated = true
-}) => {
+const ProgressBar = ({ name, value, color = 'primary', isAnimated = true }) => {
   return (
     <>
       <h5>{name}</h5>
