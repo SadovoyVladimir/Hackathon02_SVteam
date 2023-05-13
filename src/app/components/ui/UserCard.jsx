@@ -34,7 +34,7 @@ export default function UserCard({
     <div
       className='card'
       style={{
-        width: '25rem',
+        width: '20rem',
         alignItems: 'center',
         textAlign: 'center',
         padding: '1rem'
@@ -60,10 +60,10 @@ export default function UserCard({
       />
       <div className='card-body'>
         <h5 className='card-title'>{name}</h5>
-        <h4 className='card-title'>{`${age} года/лет (потом фу-ю напишу c Date.now())`}</h4>
+        <h4 className='card-title'>{`${age} года/лет`}</h4>
         <h4 className='card-title'>О себе</h4>
         <p className='card-text'>{additionalInfo}</p>
-        <p>В разработке занимаюсь: {devTask}</p>
+        {/* <p>В разработке занимаюсь: {devTask}</p> */}
         <div className='acontainer' style={{ margin: '0 auto' }}>
           {arrSocialMediaLinks.map((obj) => {
             return (
