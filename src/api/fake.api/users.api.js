@@ -11,9 +11,9 @@ const users = [
         },
         hackathonTeam: 'Разборка Питерская',
         socialNetworks: [
-            {id: 1, label: 'vk.com', url: 'https://vk.com/mitrofanov_yuriy', img: 'https://stasmatveev.ru/wp-content/uploads/2015/10/VK.jpg'},
+            {id: 1, label: 'vk.com', url: 'https://vk.com/mitrofanov_yuriy', img: 'https://formula7r.ru/wp-content/uploads/2018/11/8cfb76c8af04b72de1096c55862ae518.png'},
             {id: 2, label: 'github', url: 'https://github.com/YuriyMtrofanov', img: 'https://www.pinclipart.com/picdir/big/534-5340847_github-logos-download-github-svg-icon-clipart.png'},
-            {id: 3, label: 'telegram', url: '@Mitrofanov_Yuriy', img: 'https://w7.pngwing.com/pngs/21/510/png-transparent-video-application-logo-telegram-logo-computer-icons-telegram-miscellaneous-blue-angle.png'}
+            {id: 3, label: 'telegram', url: '@Mitrofanov_Yuriy', img: 'https://static.tildacdn.com/tild3966-6339-4636-b535-373534396532/telegram.png'}
         ],
         about: [
             {id: 1, content: 'Работаю в продажах, но мечтаю заняться frontend-разработкой. Помимо этого занимаюсь фотографией, люблю техно и dnb музыку.', img: 'URL'},

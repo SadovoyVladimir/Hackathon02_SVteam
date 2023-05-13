@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams, NavLink, Navigate } from 'react-router-dom'
 
 const UserImageCard = ({
     id,
@@ -11,12 +11,12 @@ const UserImageCard = ({
     city,
     country
 }) => {
-    const currentUserId = 1 // затычка. Нужно получать это значение динамически:
-    // const currentUserId = useSelector(getCurrentUserId());
-    const location = useLocation()
+    const { memberId } = useParams()
+    const { pathname } = useLocation()
+    const [redirect, setRedirect] = useState('') // Пока чато редиректит на main т.к. EditMemberPage не создан
+    // <Route path="edit" element={<MemberEditPage />}/>
     const handleClick = () => {
-        const redirect = location.pathname + '/edit'
-        console.log(redirect)
+        setRedirect(pathname + '/edit')
     };
     return (
         <div className="col-4 p-1">
@@ -29,12 +29,15 @@ const UserImageCard = ({
                     shadow: "2px"
                 }}
             >
-                {currentUserId === id &&
+                {Number(memberId) === id &&
                     <button
                         className="position-absolute top-0 end-0 btn btn-light btn-sm"
                         onClick={handleClick}
                     >
                     <i className="bi bi-gear"></i>
+                    {redirect &&
+                        <Navigate to={redirect}/>
+                    }
                 </button>}
                 <img
                     className='card-img-top'
