@@ -13,7 +13,7 @@ function App() {
     <>
       <NavBar />
       <AppLoader>
-        <div className='mx-4 mb-4'>{elements}</div>
+        <div className='mx-4 mb-4 bg-light'>{elements}</div>
       </AppLoader>
     </>
   )

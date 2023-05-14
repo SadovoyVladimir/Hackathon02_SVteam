@@ -88,7 +88,6 @@ export default function CreateMemberForm() {
       skills,
       about: hobbies
     }
-    console.log(newData)
     await dispatch(createMember(newData))
     navigate('/')
   }
