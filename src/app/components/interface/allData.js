@@ -9,15 +9,17 @@ export const team = {
 
 export const member = {
   id: 'number',
-  img: 'URL',
   name: 'name',
   lastName: 'last name',
   age: 'number',
+  img: 'URL',
   address: {
     country: 'country',
     city: 'city'
   },
-  hackathonTeamNumber: 'Team number',
+  hackathonTeam: 'Team name',
+  role: 'role in project',
+  features: 'information',
   linksToSocialNetworks: [
     { id: 'number', label: 'label', url: 'URL', img: 'URL' }
   ],
@@ -28,8 +30,6 @@ export const member = {
       img: 'URL'
     }
   ],
-  role: 'role in project',
-  features: [{ id: 'number', label: 'label' }],
   skills: [{ id: 'number', name: 'name', value: 'number' }]
 }
 

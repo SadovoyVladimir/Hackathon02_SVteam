@@ -41,7 +41,32 @@ const UserInfoCard = ({
                 </div>
             </div>
         </div>
-    )
+        <div className='card-body'>
+          {about.map((p) => (
+            <p key={p.id} className='card-text'>
+              {p.content}
+            </p>
+          ))}
+          <div className='card-skills mb-2'>
+            <b>Основные навыки: </b>
+            {skills.map((s) => (
+              <Badge key={s.id} content={s.label} />
+            ))}
+          </div>
+          <p className='card-skills mb-2'>
+            <b>Роль в команде: </b>
+            {role}
+          </p>
+          <p className='card-features mb-2'>
+            <b>В проекте разработал следующие компонетны: </b>
+            {features.map((f) => (
+              <Badge key={f.id} color='info' content={f.label} />
+            ))}
+          </p>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 UserInfoCard.propTypes = {
@@ -52,5 +77,5 @@ UserInfoCard.propTypes = {
     role: PropTypes.string,
     features: PropTypes.array
 }
- 
-export default UserInfoCard;
+
+export default UserInfoCard
