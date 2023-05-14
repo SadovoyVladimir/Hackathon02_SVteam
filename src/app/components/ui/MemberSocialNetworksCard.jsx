@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { getMemberById } from '../../store/memberSlice'
 
-const UserSocialNetworksCard = () => {
+const MemberSocialNetworksCard = () => {
   const { memberId } = useParams()
   const member = useSelector(getMemberById(memberId))
 
@@ -33,4 +33,4 @@ const UserSocialNetworksCard = () => {
   )
 }
 
-export default UserSocialNetworksCard
+export default MemberSocialNetworksCard

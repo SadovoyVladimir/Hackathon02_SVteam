@@ -1,6 +1,8 @@
-export function getMembersIdInLocalStorage(localStorageKey) {
+const LOCAL_STORAGE_KEY = 'favourite'
+
+export function getMembersIdInLocalStorage() {
   let members = []
-  const dataFromLocalStorage = localStorage.getItem(localStorageKey)
+  const dataFromLocalStorage = localStorage.getItem(LOCAL_STORAGE_KEY)
 
   if (dataFromLocalStorage) {
     return (members = dataFromLocalStorage.split(','))
@@ -8,29 +10,33 @@ export function getMembersIdInLocalStorage(localStorageKey) {
   return members
 }
 
-function sendDataToLS(localStorageKey, newArray) {
-  localStorage.setItem(localStorageKey, newArray)
+function sendDataToLS(newArray) {
+  localStorage.setItem(LOCAL_STORAGE_KEY, newArray)
 }
 
 function addToLS(id) {
-  let actualArr = getMembersIdInLocalStorage('favourites2')
+  let actualArr = getMembersIdInLocalStorage()
   actualArr.push(id)
-  sendDataToLS('favourites2', actualArr)
+  sendDataToLS(actualArr)
 }
 
-function removeToLS(id) {
-  let actualArr = getMembersIdInLocalStorage('favourites2')
+function removeFromLS(id) {
+  let actualArr = getMembersIdInLocalStorage()
   const updateArr = actualArr.filter((el) => el !== id)
-  sendDataToLS('favourites2', updateArr)
+  if (updateArr.length) {
+    sendDataToLS(updateArr)
+  } else {
+    localStorage.removeItem(LOCAL_STORAGE_KEY)
+  }
 }
 
 export function toggleMemberToLocalStorage(id) {
-  let membersIds = getMembersIdInLocalStorage('favourites2')
-  const findStatus = membersIds.find((el) => el == id)
+  let membersIds = getMembersIdInLocalStorage()
+  const findStatus = membersIds.find((el) => el === id)
 
   if (!findStatus) {
     addToLS(id)
   } else {
-    removeToLS(id)
+    removeFromLS(id)
   }
 }

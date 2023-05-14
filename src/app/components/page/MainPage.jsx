@@ -1,9 +1,9 @@
 import React from 'react'
-import TeamInfo from '../ui/TeamInfo'
-import api from '../../../api'
-import MembersList from '../ui/MembersList'
 import { useSelector } from 'react-redux'
 import { getMembers } from '../../store/memberSlice'
+import api from '../../../api'
+import TeamInfo from '../ui/TeamInfo'
+import MembersList from '../ui/MembersList'
 
 export default function MainPage() {
   const members = useSelector(getMembers())

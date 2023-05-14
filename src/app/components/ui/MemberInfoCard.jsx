@@ -6,17 +6,17 @@ import getRandomColor from '../utils/getRandomColor'
 import ProgressBar from '../common/progressBar'
 import Badge from '../common/badge'
 
-const UserInfoCard = () => {
+const MemberInfoCard = () => {
   const { memberId } = useParams()
   const member = useSelector(getMemberById(memberId))
   const features = member.features.split(', ')
-  const { skills, about } = member
+  const { skills, about, hackathonTeam } = member
 
   return (
     <div className='card'>
       <div className='card-header'>
         <h3>
-          {'Участник команды'} <b>{member.team}</b>
+          {'Участник команды'} <b>{hackathonTeam}</b>
         </h3>
       </div>
       <div className='card-body'>
@@ -51,8 +51,8 @@ const UserInfoCard = () => {
         <div className='card-skills mb-2'>
           <h5>В проекте разработал следующие компонетны:</h5>
           <ul>
-            {features.map((feature) => (
-              <li key={feature}>{feature}</li>
+            {features.map((feature, index) => (
+              <li key={index}>{feature}</li>
             ))}
           </ul>
         </div>
@@ -61,4 +61,4 @@ const UserInfoCard = () => {
   )
 }
 
-export default UserInfoCard
+export default MemberInfoCard

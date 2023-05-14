@@ -1,15 +1,15 @@
 import { nanoid } from 'nanoid'
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { createMember } from '../../store/memberSlice'
 import TextField from '../common/form/TextField'
 import SelectField from '../common/form/selectField'
 import TextAreaField from '../common/form/textAreaField'
-import AddLinksForm from './addLinksForm'
 import Button from '../common/button'
-import { useDispatch } from 'react-redux'
-import { createMember } from '../../store/memberSlice'
+import AddLinksForm from './addLinksForm'
 import AddSkillsForm from './addSkillsForm'
 import AddHobbiesForm from './addHobbiesForm'
-import { useNavigate } from 'react-router-dom'
 
 export default function CreateMemberForm() {
   const initialData = {
@@ -22,19 +22,10 @@ export default function CreateMemberForm() {
     role: '',
     features: ''
   }
-
   const initialAddress = {
     country: '',
     city: ''
   }
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-
-  const links = []
-  const skills = []
-  const hobbies = []
-  const [data, setData] = useState(initialData)
-  const [address, setAddress] = useState(initialAddress)
   const teams = [
     { name: 'Разборка питерская', id: nanoid() },
     { name: 'Другая', id: nanoid() }
@@ -43,6 +34,14 @@ export default function CreateMemberForm() {
     { name: 'Teamlead', id: nanoid() },
     { name: 'Developer', id: nanoid() }
   ]
+  const links = []
+  const skills = []
+  const hobbies = []
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const [data, setData] = useState(initialData)
+  const [address, setAddress] = useState(initialAddress)
 
   const handleChange = (target, changeType = 'data') => {
     if (changeType === 'data') {
@@ -173,7 +172,7 @@ export default function CreateMemberForm() {
       <div className='d-flex justify-content-center'>
         <Button
           buttonType='submit'
-          buttonName='Create'
+          buttonName='CREATE'
           style={{ width: 50 + '%' }}
         />
       </div>

@@ -9,7 +9,7 @@ export default function TextAreaField({ label, value, name, onChange }) {
   return (
     <div className='mb-4'>
       <label htmlFor={name}>{label}</label>
-      <div className='input-group has-validation'>
+      <div className='input-group'>
         <textarea
           id={name}
           name={name}

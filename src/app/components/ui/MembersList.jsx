@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import UserCard from './UserCard'
 import PropTypes from 'prop-types'
 import { useLocation } from 'react-router-dom'
+import MemberCard from './MemberCard'
 import Button from '../common/button'
 
 const firstConfiguration = {
@@ -36,7 +36,7 @@ const MembersList = ({ allMembers, updateFavourites }) => {
     if (storedState !== null) {
       setConfigureList(JSON.parse(storedState))
     }
-  }, [])
+  }, [keyPage])
 
   useEffect(() => {
     configureList
@@ -56,7 +56,7 @@ const MembersList = ({ allMembers, updateFavourites }) => {
       <div className='col-md-12' style={styleList}>
         {allMembers.map((member) => {
           return (
-            <UserCard
+            <MemberCard
               updateFavourites={updateFavourites}
               key={member.id}
               {...member}
