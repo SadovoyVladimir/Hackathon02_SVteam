@@ -7,6 +7,7 @@ import {
 } from '../../services/localStorage.service'
 
 export default function UserCard({
+  configureList,
   id,
   img,
   name,
@@ -19,6 +20,8 @@ export default function UserCard({
     toggleMemberToLocalStorage(id)
     setFavourites(!favourites)
   }
+
+  console.log(configureList)
 
   useEffect(() => {
     const favouritesIds = getMembersIdInLocalStorage('favourites2')
@@ -39,47 +42,114 @@ export default function UserCard({
   // }
 
   // ageTransform(birthday)
+
+  if (configureList) {
+    return (
+      <div
+        className='card'
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          marginTop: '1rem'
+        }}
+      >
+        <div className='logoAndButton' style={{ display: 'flex' }}>
+          <Button
+            buttonName={
+              favourites ? (
+                <i class='bi bi-star-fill'></i>
+              ) : (
+                <i class='bi bi-star'></i>
+              )
+            }
+            buttonColor={favourites ? 'secondary' : 'success'}
+            handler={handleFavourite}
+          />
+          <img
+            src={img}
+            alt={img}
+            style={{
+              width: '10rem',
+              height: '10rem',
+              borderRadius: '50%',
+              margin: '0 auto',
+              marginLeft: '1.5rem',
+              marginTop: '0.4rem'
+            }}
+          />
+        </div>
+
+        <div className='card-body'>
+          <h5 className='card-title'>{name}</h5>
+          <h4 className='card-title'>{age}</h4>
+          <h4 className='card-title'>{'about.content'}</h4>
+          <div className='acontainer' style={{ margin: '0 auto' }}>
+            {sotialNetworcs &&
+              sotialNetworcs.map((link) => {
+                return (
+                  <span key={link.id}>
+                    <Button key={link.id} buttonName={link.label} />
+                  </span>
+                )
+              })}
+          </div>
+        </div>
+      </div>
+    )
+  }
   return (
     <div
       className='card'
       style={{
         width: '20rem',
-        alignItems: 'center',
+        // alignItems: 'center',
         textAlign: 'center',
-        padding: '1rem'
+        padding: '1rem',
+        display: 'flex'
       }}
     >
-      <Button
-        buttonName={
-          favourites ? 'Добавить в избранное' : 'Удалить из избранного'
-        }
-        buttonColor={favourites ? 'success' : 'dark'}
-        handler={handleFavourite}
-      />
+      <div
+        style={{
+          textAlign: 'start'
+        }}
+      >
+        <Button
+          buttonName={
+            favourites ? (
+              <i class='bi bi-star-fill'></i>
+            ) : (
+              <i class='bi bi-star'></i>
+            )
+          }
+          buttonColor={favourites ? 'secondary' : 'success'}
+          handler={handleFavourite}
+        />
+      </div>
 
       <img
-        className='card-img-top'
         src={img}
         alt={img}
         style={{
           width: '10rem',
           height: '10rem',
           borderRadius: '50%',
-          margin: 'o auto'
+          margin: '0 auto'
         }}
       />
+
       <div className='card-body'>
         <h5 className='card-title'>{name}</h5>
         <h4 className='card-title'>{age}</h4>
-        <h4 className='card-title'>{about.content}</h4>
+        <h4 className='card-title'>{'about.content'}</h4>
         <div className='acontainer' style={{ margin: '0 auto' }}>
-          {sotialNetworcs.map((link) => {
-            return (
-              <span key={link.id}>
-                <Button key={link.id} buttonName={link.label} />
-              </span>
-            )
-          })}
+          {sotialNetworcs &&
+            sotialNetworcs.map((link) => {
+              return (
+                <span key={link.id}>
+                  <Button key={link.id} buttonName={link.label} />
+                </span>
+              )
+            })}
         </div>
       </div>
     </div>
