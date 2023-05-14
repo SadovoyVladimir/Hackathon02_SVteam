@@ -11,7 +11,6 @@ export default function MainPage() {
 
   return (
     <div className='row justify-content-md-center'>
-      {' '}
       <div className='col-md-8 p-2'>
         <TeamInfo {...team} />
         <MembersList allMembers={members} />

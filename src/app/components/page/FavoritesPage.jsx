@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { getMembersIdInLocalStorage } from '../../services/localStorage.service'
 import MembersList from '../ui/MembersList'
 import { getMembers } from '../../store/memberSlice'
+import EmptyFavouriteList from '../ui/EmptyFavouriteList'
 
 export default function FavoritesPage() {
   const [favouritesMembers, setFavouritesMembers] = useState([])
@@ -36,18 +37,9 @@ export default function FavoritesPage() {
         <MembersList
           updateFavourites={updateFavourites}
           allMembers={sortFavouriteMembers(members)}
-          visualConfig={'firstConfig'}
-          favouritesMembersCount={favouritesMembers.length}
         />
       ) : (
-        <div>
-          <h1>Нет избранных</h1>
-          <img
-            src='https://www.pngmart.com/files/11/Sad-Keanu-Reeves-PNG-Clipart.png'
-            alt='Keanu-Reeves-Sad'
-            style={{ width: '20rem', height: '13rem' }}
-          />
-        </div>
+        <EmptyFavouriteList />
       )}
     </>
   )
