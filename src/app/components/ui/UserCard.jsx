@@ -5,6 +5,7 @@ import {
   getMembersIdInLocalStorage,
   toggleMemberToLocalStorage
 } from '../../services/localStorage.service'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export default function UserCard({
   configureList,
@@ -16,12 +17,17 @@ export default function UserCard({
   sotialNetworcs
 }) {
   const [favourites, setFavourites] = useState(true)
+  const navigate = useNavigate()
+  const { pathname } = useLocation()
+
   const handleFavourite = () => {
     toggleMemberToLocalStorage(id)
     setFavourites(!favourites)
   }
 
-  console.log(configureList)
+  const handleGoToProfile = () => {
+    navigate(`/member/${id}`, { state: pathname })
+  }
 
   useEffect(() => {
     const favouritesIds = getMembersIdInLocalStorage('favourites2')
@@ -57,9 +63,9 @@ export default function UserCard({
           <Button
             buttonName={
               favourites ? (
-                <i class='bi bi-star-fill'></i>
+                <i className='bi bi-star-fill'></i>
               ) : (
-                <i class='bi bi-star'></i>
+                <i className='bi bi-star'></i>
               )
             }
             buttonColor={favourites ? 'secondary' : 'success'}
@@ -80,7 +86,12 @@ export default function UserCard({
         </div>
 
         <div className='card-body'>
-          <h5 className='card-title'>{name}</h5>
+          <Button
+            buttonName={<i className='bi bi-person-fill'></i>}
+            buttonColor='dark'
+            handler={handleGoToProfile}
+          />
+          {/* <h5 className='card-title'>{name}</h5> */}
           <h4 className='card-title'>{age}</h4>
           <h4 className='card-title'>{'about.content'}</h4>
           <div className='acontainer' style={{ margin: '0 auto' }}>
@@ -110,19 +121,26 @@ export default function UserCard({
     >
       <div
         style={{
-          textAlign: 'start'
+          textAlign: 'start',
+          display: 'flex',
+          justifyContent: 'space-between'
         }}
       >
         <Button
           buttonName={
             favourites ? (
-              <i class='bi bi-star-fill'></i>
+              <i className='bi bi-star-fill'></i>
             ) : (
-              <i class='bi bi-star'></i>
+              <i className='bi bi-star'></i>
             )
           }
           buttonColor={favourites ? 'secondary' : 'success'}
           handler={handleFavourite}
+        />
+        <Button
+          buttonName={<i className='bi bi-person-fill'></i>}
+          buttonColor='dark'
+          handler={handleGoToProfile}
         />
       </div>
 

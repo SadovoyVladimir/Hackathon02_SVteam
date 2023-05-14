@@ -4,6 +4,7 @@ import routes from './routes'
 import withRouter from './components/ui/hoc/withRouter'
 import NavBar from './components/ui/NavBar'
 import withRedux from './components/ui/hoc/withRedux'
+import Breadcrumbs from './components/ui/Breadcrumbs'
 
 function App() {
   const elements = useRoutes(routes)

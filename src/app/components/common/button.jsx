@@ -1,7 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import PropTypes, { oneOfType } from 'prop-types'
 
 const Button = ({
+  style,
   buttonColor = 'primary',
   handler,
   buttonName,
@@ -9,6 +10,7 @@ const Button = ({
 }) => {
   return (
     <button
+      style={style}
       className={`btn btn-${buttonColor}`}
       onClick={handler}
       type={buttonType}
@@ -19,9 +21,10 @@ const Button = ({
 }
 
 Button.propTypes = {
+  style: PropTypes.object,
   buttonColor: PropTypes.string,
   handler: PropTypes.func,
-  buttonName: PropTypes.string.isRequired,
+  buttonName: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   buttonType: PropTypes.string
 }
 
