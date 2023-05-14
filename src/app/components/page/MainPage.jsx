@@ -12,7 +12,7 @@ export default function MainPage() {
   return (
     <>
       <h1>Main page</h1>
-      <div className="col-md-8 justify-content-md-center shadow p-4">
+      <div className="col-md-6 offset-md-2">
         <TeamInfo
           name={team.teamName}
           img={team.img}
