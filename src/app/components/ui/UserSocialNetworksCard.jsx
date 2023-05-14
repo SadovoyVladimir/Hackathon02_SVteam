@@ -14,22 +14,22 @@ const UserSocialNetworksCard = ({ user }) => {
                         alt='Card cap'
                         style={{
                             maxWidth: '3rem',
+                            maxHigth: '3rem',
                             borderRadius: '50%',
                             margin: 'auto'
                         }}
                         />
-                        <a className='figure-caption text-end' href="">{link.label}</a>
+                        <a className='figure-caption text-end' href={link.url}>{link.label}</a>
                     </span>)
                 )}
                 </div>
             </div>
         </div>
-        
-    );
+  )
 }
 
 UserSocialNetworksCard.propTypes = {
-    user: PropTypes.object
+  user: PropTypes.object
 }
- 
-export default UserSocialNetworksCard;
+
+export default UserSocialNetworksCard

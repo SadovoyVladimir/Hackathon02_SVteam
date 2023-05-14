@@ -14,7 +14,7 @@ export default function UserCard({
   name,
   age,
   about,
-  sotialNetworcs
+  socialNetworks
 }) {
   const [favourites, setFavourites] = useState(true)
   const navigate = useNavigate()
@@ -178,6 +178,6 @@ UserCard.propTypes = {
   id: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  about: PropTypes.object.isRequired,
-  sotialNetworcs: PropTypes.array.isRequired
+  about: PropTypes.array.isRequired,
+  sotialNetworcs: PropTypes.array
 }

@@ -26,10 +26,10 @@ export default function NavBar() {
           </li>
           <li className='me-2 '>
             <NavLink
-              to='/auth/signup'
+              to='/createMember'
               className='text-white text-decoration-none'
             >
-              Sign up
+              Create
             </NavLink>
           </li>
         </ul>

@@ -1,32 +1,54 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Input from './form-component/Input'
-import Label from './form-component/Label'
-import Select from './form-component/Select'
+import PropTypes, { oneOfType } from 'prop-types'
 
-const TextField = ({ label, name, htmlFor }) => {
+export default function TextField({
+  label,
+  value,
+  name,
+  onChange,
+  type = 'text',
+  changeType
+}) {
+  const handleChange = ({ target }) => {
+    onChange({ name: target.name, value: target.value }, changeType)
+  }
+
+  const renderMin = () => {
+    if (type === 'number') {
+      return 0
+    }
+    return null
+  }
+  const renderMax = () => {
+    if (type === 'number') {
+      return 150
+    }
+    return null
+  }
   return (
-    <>
-      <div className='mb-4'>
-        <Label htmlFor={htmlFor} label={label} />
-        <div className='input-group has-validation'>
-          <Input type={'text'} id={name} name={name} />
-        </div>
+    <div className='mb-4'>
+      <label htmlFor={name}>{label}</label>
+      <div className='input-group has-validation'>
+        <input
+          type={type}
+          id={name}
+          name={name}
+          value={value}
+          min={renderMin()}
+          max={renderMax()}
+          onChange={handleChange}
+          className='form-control'
+        />
       </div>
-
-      <div className='mb-4'>
-        <Label htmlFor={htmlFor} label={'Селектовое поле'} />
-        <div className='input-group has-validation'>
-          <Select />
-        </div>
-      </div>
-    </>
+    </div>
   )
 }
 
-export default TextField
-
 TextField.propTypes = {
-  label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
+  label: PropTypes.string,
+  value: oneOfType([PropTypes.string, PropTypes.number]),
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  type: PropTypes.string,
+  changeType: PropTypes.string
 }

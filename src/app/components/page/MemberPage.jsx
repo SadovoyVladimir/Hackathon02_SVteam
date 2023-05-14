@@ -3,6 +3,7 @@ import api from '../../../api'
 import UserImageCard from '../ui/userImageCard'
 import UserSocialNetworksCard from '../ui/UserSocialNetworksCard'
 import UserInfoCard from '../ui/UserInfoCard'
+
 import Breadcrumbs from '../ui/Breadcrumbs'
 import { useLocation, useNavigation, useParams } from 'react-router-dom'
 
@@ -12,6 +13,14 @@ export default function MemberPage() {
 
   const userId = 1
   const user = users.find((user) => user.id === userId)
+
+import { useParams } from 'react-router-dom'
+
+export default function MemberPage() {
+  const { users } = api
+  const { memberId } = useParams()
+  const user = users.find(user => user.id === memberId)
+
   return (
     <>
       <Breadcrumbs state={state} userName={`${user.name} ${user.lastName}`} />
