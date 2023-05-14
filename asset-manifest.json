@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Hackathon02_SVteam/static/css/main.e6c13ad2.css",
+    "main.js": "/Hackathon02_SVteam/static/js/main.2aa71927.js",
+    "static/js/787.127dd856.chunk.js": "/Hackathon02_SVteam/static/js/787.127dd856.chunk.js",
+    "index.html": "/Hackathon02_SVteam/index.html",
+    "main.e6c13ad2.css.map": "/Hackathon02_SVteam/static/css/main.e6c13ad2.css.map",
+    "main.2aa71927.js.map": "/Hackathon02_SVteam/static/js/main.2aa71927.js.map",
+    "787.127dd856.chunk.js.map": "/Hackathon02_SVteam/static/js/787.127dd856.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.2aa71927.js"
+  ]
+}
