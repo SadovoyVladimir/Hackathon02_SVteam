@@ -11,7 +11,7 @@ const Badge = ({ color = 'primary', content, style }) => {
 
 Badge.propTypes = {
   color: PropTypes.string,
-  style: PropTypes.object
+  style: PropTypes.object,
   content: PropTypes.string
 }
 

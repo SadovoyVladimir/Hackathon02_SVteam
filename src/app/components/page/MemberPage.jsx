@@ -9,21 +9,25 @@ import { useSelector } from 'react-redux'
 
 export default function MemberPage() {
   const { memberId } = useParams()
-  const isMemberIdExists = useSelector(getMembers(memberId)).find(m => m.id === memberId)
+  const isMemberIdExists = useSelector(getMembers(memberId)).find(
+    (m) => m.id === memberId
+  )
 
   return (
     <>
       {/* <Breadcrumbs state={state} userName={`${user.name} ${user.lastName}`} /> */}
       <h1>Member page</h1>
-      {isMemberIdExists
-        ? (<div className='container'>
-            <div className='row'>
-              <UserImageCard />
-              <UserInfoCard />
-              <UserSocialNetworksCard />
-            </div>
-          </div>)
-        : (<Navigate to='/'/>)}
+      {isMemberIdExists ? (
+        <div className='container'>
+          <div className='row'>
+            <UserImageCard />
+            <UserInfoCard />
+            <UserSocialNetworksCard />
+          </div>
+        </div>
+      ) : (
+        <Navigate to='/' />
+      )}
     </>
   )
 }

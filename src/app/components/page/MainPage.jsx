@@ -13,13 +13,8 @@ export default function MainPage() {
     <>
       <h1>Main page</h1>
       <div className='col-md-12 justify-content-md-center shadow p-4'>
-        <TeamInfo
-          name={team.teamName}
-          img={team.img}
-          title={team.taskTitle}
-          description={team.description}
-        />
-        <MembersList allUsers={members} />
+        <TeamInfo {...team} />
+        <MembersList allMembers={members} />
       </div>
     </>
   )
