@@ -31,7 +31,7 @@ const MembersList = ({ allUsers, updateFavourites }) => {
     localStorage.setItem(keyPage, JSON.stringify(value))
   }
 
-  console.log(allUsers)
+  // console.log(allUsers)
 
   useEffect(() => {
     const storedState = localStorage.getItem(keyPage)

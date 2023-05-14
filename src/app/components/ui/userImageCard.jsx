@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { getMemberById } from '../../store/memberSlice'
@@ -42,13 +42,13 @@ const UserImageCard = () => {
   )
 }
 
-UserImageCard.propTypes = {
-  name: PropTypes.string,
-  img: PropTypes.string,
-  lastName: PropTypes.string,
-  age: PropTypes.number,
-  city: PropTypes.string,
-  country: PropTypes.string
-}
+// UserImageCard.propTypes = {
+//     name: PropTypes.string,
+//     img: PropTypes.string,
+//     lastName: PropTypes.string,
+//     age: PropTypes.number,
+//     city: PropTypes.string,
+//     country: PropTypes.string
+// }
 
 export default UserImageCard

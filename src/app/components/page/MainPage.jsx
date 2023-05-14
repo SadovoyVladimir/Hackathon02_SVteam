@@ -12,15 +12,17 @@ export default function MainPage() {
   return (
     <>
       <h1>Main page</h1>
-      <div className='col-md-12 justify-content-md-center shadow p-4'>
-        <TeamInfo
-          name={team.teamName}
-          img={team.img}
-          title={team.taskTitle}
-          description={team.description}
-        />
-        <MembersList allUsers={members} />
-      </div>
+        <div className='row justify-content-md-center'>
+          <div className='col-md-8 p-2'>
+            <TeamInfo
+              name={team.teamName}
+              img={team.img}
+              title={team.taskTitle}
+              description={team.description}
+            />
+            <MembersList allUsers={members} />
+          </div>
+        </div>
     </>
   )
 }

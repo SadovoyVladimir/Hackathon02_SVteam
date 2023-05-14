@@ -7,7 +7,9 @@ const TeamInfo = ({ name, img, title, description }) => {
       <div className='card mb-2' style={{ width: '100%' }}>
         <img src={img} className='card-img-top' alt='Team image' />
         <div className='card-header'>
-          <p className='display-6'>{name}</p>
+          <p className='display-6'> 
+            <b>{name}</b>
+          </p>
         </div>
         <div className='card-body'>
           <h5 className='card-title'>{title}</h5>
