@@ -12,6 +12,101 @@ export default function FavoritesPage() {
     setFavouritesMembers(getMembersIdInLocalStorage('favourites2'))
   }, [])
 
+  const team2 = {
+    id: 'number',
+    img: 'URL',
+    groupName: 'Group name',
+    hackathonTeamName: 'number',
+    taskTitle: 'name',
+    description: 'description'
+  }
+
+  const user1 = {
+    id: '1',
+    img: 'URL',
+    name: 'Василий',
+    lastName: 'last name',
+    age: 'number',
+    addres: {
+      country: 'country',
+      city: 'city'
+    },
+    hackathonTeam: { id: team2.id },
+    sotialNetworcs: [
+      // {id: sotialNetworcs.id} // реализация через отдельную сущность
+      { id: 'number', label: 'label', url: 'URL', img: 'URL' }
+    ],
+    about: {
+      id: 'number',
+      content: 'text',
+      img: 'URL'
+    },
+    role: 'role in progect',
+    features: [{ id: 'number1', label: 'label' }],
+    skills: [
+      // {id: "skills.id"}, // реализация через отдельную сущность
+      { id: 'number', label: 'label' }
+    ]
+  }
+
+  const user2 = {
+    id: '2',
+    img: 'URL',
+    name: 'Андрей',
+    lastName: 'last name',
+    age: 'number',
+    addres: {
+      country: 'country',
+      city: 'city'
+    },
+    hackathonTeam: { id: team2.id },
+    sotialNetworcs: [
+      // {id: sotialNetworcs.id} // реализация через отдельную сущность
+      { id: 'number2', label: 'label', url: 'URL', img: 'URL' }
+    ],
+    about: {
+      id: 'number',
+      content: 'text',
+      img: 'URL'
+    },
+    role: 'role in progect',
+    features: [{ id: 'number', label: 'label' }],
+    skills: [
+      // {id: "skills.id"}, // реализация через отдельную сущность
+      { id: 'number', label: 'label' }
+    ]
+  }
+
+  const user3 = {
+    id: '3',
+    img: 'URL',
+    name: 'Кристина',
+    lastName: 'last name',
+    age: 'number',
+    addres: {
+      country: 'country',
+      city: 'city'
+    },
+    hackathonTeam: { id: team2.id },
+    sotialNetworcs: [
+      // {id: sotialNetworcs.id} // реализация через отдельную сущность
+      { id: 'number3', label: 'label', url: 'URL', img: 'URL' }
+    ],
+    about: {
+      id: 'number',
+      content: 'text',
+      img: 'URL'
+    },
+    role: 'role in progect',
+    features: [{ id: 'number', label: 'label' }],
+    skills: [
+      // {id: "skills.id"}, // реализация через отдельную сущность
+      { id: 'number', label: 'label' }
+    ]
+  }
+
+  const allUsers = [user1, user2, user3]
+
   function sortFavouriteMembers(arrayAllMembers) {
     let sortedArray = []
     arrayAllMembers.forEach((member) => {

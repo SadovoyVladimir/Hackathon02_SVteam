@@ -168,5 +168,5 @@ UserCard.propTypes = {
   img: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   about: PropTypes.array,
-  socialNetworks: PropTypes.array
+  sotialNetworcs: PropTypes.array
 }
