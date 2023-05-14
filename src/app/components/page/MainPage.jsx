@@ -18,8 +18,8 @@ export default function MainPage() {
         title={team.taskTitle}
         description={team.description}
       />
-      <MembersList />
-      <TextField label={'текстовое поле'} htmlFor={''} name={'name'} />
+      {/* <MembersList allUsers={allUsers} /> */}
+      {/* <TextField label={'текстовое поле'} htmlFor={''} name={'name'} /> */}
     </>
   )
 }
