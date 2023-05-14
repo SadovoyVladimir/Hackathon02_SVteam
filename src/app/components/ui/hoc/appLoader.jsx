@@ -4,6 +4,7 @@ import {
   getMembersLoadingStatus,
   loadMembersList
 } from '../../../store/memberSlice'
+import SpinnerLoader from '../SpinnerLoader'
 
 export default function AppLoader({ children }) {
   const dispatch = useDispatch()
@@ -13,16 +14,7 @@ export default function AppLoader({ children }) {
     dispatch(loadMembersList())
   }, [])
 
-  if (isLoading)
-    return (
-      <>
-        <div class='d-flex justify-content-center'>
-          <div class='spinner-border' role='status'>
-            <span class='sr-only'></span>
-          </div>
-        </div>
-      </>
-    )
+  if (isLoading) return <SpinnerLoader />
 
   return children
 }

@@ -8,6 +8,7 @@ import {
 } from '../../services/localStorage.service'
 import Badge from '../common/badge'
 import '../../../../src/index.css'
+import { setBadgeColor } from '../utils/getJobTitleColor'
 
 export default function UserCard({
   configureList,
@@ -36,8 +37,6 @@ export default function UserCard({
   const handleGoToProfile = () => navigate(`/member/${id}`, { state: pathname })
 
   const handleGoToLink = (url) => window.open(url, '_blank')
-
-  const setBadgeColor = (role) => (role === 'Teamlead' ? 'warning' : 'primary')
 
   useEffect(() => {
     const favouritesIds = getMembersIdInLocalStorage('favourites2')
@@ -244,7 +243,7 @@ UserCard.propTypes = {
   name: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
   age: PropTypes.string.isRequired,
-  about: PropTypes.array,
   updateFavourites: PropTypes.func,
-  linksToSocialNetworks: PropTypes.array
+  linksToSocialNetworks: PropTypes.array,
+  role: PropTypes.string.isRequired
 }

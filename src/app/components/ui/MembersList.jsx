@@ -19,11 +19,7 @@ const secondConfiguration = {
   marginTop: '1rem'
 }
 
-const MembersList = ({
-  allMembers,
-  updateFavourites,
-  favouritesMembersCount
-}) => {
+const MembersList = ({ allMembers, updateFavourites }) => {
   const [configureList, setConfigureList] = useState(false)
   const [styleList, setStyleList] = useState({})
   const { pathname } = useLocation()
@@ -64,7 +60,6 @@ const MembersList = ({
               updateFavourites={updateFavourites}
               key={member.id}
               {...member}
-              favourites={true}
               configureList={configureList}
             />
           )
@@ -77,7 +72,6 @@ const MembersList = ({
 export default MembersList
 
 MembersList.propTypes = {
-  favouritesMembersCount: PropTypes.number,
   allMembers: PropTypes.array,
   updateFavourites: PropTypes.func
 }
