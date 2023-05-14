@@ -12,8 +12,8 @@ export default function MemberPage() {
   return (
     <>
       <h1>Member page</h1>
-      <div className="container">
-        <div className="row">
+      <div className='container'>
+        <div className='row'>
           <UserImageCard
             name = {user.name}
             img = {user.img}

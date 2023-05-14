@@ -65,7 +65,7 @@ const UserImageCard = ({
                 </div>
             </div>
         </div>
-    );
+  )
 }
 
 UserImageCard.propTypes = {

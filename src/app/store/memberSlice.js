@@ -49,7 +49,7 @@ function isOutdated(date) {
   return false
 }
 
-export const createUser = (payload) => async (dispatch) => {
+export const createMember = (payload) => async (dispatch) => {
   dispatch(memberCreateRequested())
   try {
     const { data } = await memberService.create(payload)

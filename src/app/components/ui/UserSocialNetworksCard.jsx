@@ -25,12 +25,11 @@ const UserSocialNetworksCard = ({ user }) => {
                 </div>
             </div>
         </div>
-        
-    );
+  )
 }
 
 UserSocialNetworksCard.propTypes = {
-    user: PropTypes.object
+  user: PropTypes.object
 }
- 
-export default UserSocialNetworksCard;
+
+export default UserSocialNetworksCard
