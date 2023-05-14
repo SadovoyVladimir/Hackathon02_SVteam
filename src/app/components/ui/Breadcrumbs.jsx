@@ -29,8 +29,6 @@ const Breadcrumbs = ({ userName, state }) => {
 export default Breadcrumbs
 
 Breadcrumbs.propTypes = {
-  //   pathname: PropTypes.string.isRequired,
   state: PropTypes.string,
   userName: PropTypes.string.isRequired
-  //   about: PropTypes.object.isRequired,
 }
