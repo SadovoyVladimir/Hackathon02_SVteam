@@ -3,7 +3,7 @@ const team = {
   img: 'https://sun9-19.userapi.com/impg/Ud3q3YFfU50y9mlyu_SyMYx9DRYOI7lYuudn9A/mq8mCvkQVIg.jpg?size=1230x240&quality=95&sign=5d427975c24e297e312e04dfec426883&type=album',
   teamName: 'Это разборка питерская',
   hackathonTeam: 2,
-  taskTitle: 'Разработка сайта с информацией о участниках команды',
+  title: 'Разработка сайта с информацией о участниках команды',
   description: [
     {
       id: '1',

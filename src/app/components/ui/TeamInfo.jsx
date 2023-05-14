@@ -20,7 +20,7 @@ const TeamInfo = ({ name, img, title, description }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

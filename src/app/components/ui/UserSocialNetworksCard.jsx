@@ -4,37 +4,35 @@ import { useSelector } from 'react-redux'
 import { getMemberById } from '../../store/memberSlice'
 
 const UserSocialNetworksCard = () => {
-    const { memberId } = useParams()
-    const member = useSelector(getMemberById(memberId))
+  const { memberId } = useParams()
+  const member = useSelector(getMemberById(memberId))
 
-    return (
-        <div className="col-4 p-1 mb-2">
-            <div className='card'>
-                <div className='acontainer p-1' style={{ margin: '0 auto' }}>
-                    {member.linksToSocialNetworks.map((link) => 
-                        (<span key={link.id}>
-                            <img
-                            className='card-img-top p-1'
-                            src={link.img}
-                            alt='Card cap'
-                            style={{
-                                maxWidth: '3rem',
-                                maxHigth: '3rem',
-                                borderRadius: '50%',
-                                margin: 'auto'
-                            }}
-                            />
-                            <a className='figure-caption text-end' href={link.url}>{link.name}</a>
-                        </span>)
-                    )}
-                </div>
-            </div>
+  return (
+    <div className='col-4 p-1 mb-2'>
+      <div className='card'>
+        <div className='acontainer p-1' style={{ margin: '0 auto' }}>
+          {member.linksToSocialNetworks.map((link) => (
+            <span key={link.id}>
+              <img
+                className='card-img-top p-1'
+                src={link.img}
+                alt='Card cap'
+                style={{
+                  maxWidth: '3rem',
+                  maxHigth: '3rem',
+                  borderRadius: '50%',
+                  margin: 'auto'
+                }}
+              />
+              <a className='figure-caption text-end' href={link.url}>
+                {link.name}
+              </a>
+            </span>
+          ))}
         </div>
+      </div>
+    </div>
   )
 }
-
-// UserSocialNetworksCard.propTypes = {
-//   user: PropTypes.object
-// }
 
 export default UserSocialNetworksCard
