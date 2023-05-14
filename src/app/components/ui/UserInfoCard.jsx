@@ -22,7 +22,8 @@ const UserInfoCard = () => {
             </div>
             <div className='card-body'>
                 <div className='card-skills mb-2'>
-                    <h5>Роль в команде:  <b>{member.role}</b></h5>
+                    <h5>Роль в команде: </h5>
+                    <h3><Badge content={member.role} color='danger'/></h3>
                 </div>
                 <h5>Увлечения: </h5>
                 <ul>
@@ -35,8 +36,8 @@ const UserInfoCard = () => {
                     <ul>
                         {skills.map(s => (
                             <li key={s.id}>
-                                <h5><Badge content={s.name} color={s.color}/></h5>
-                                <ProgressBar name='Владение' value={s.value}/>
+                                <h5><Badge content={s.name} color={getRandomColor()}/></h5>
+                                <ProgressBar name='Владение' color='primary' value={s.value}/>
                                 <p></p>
                             </li>
                         ))}
@@ -44,11 +45,13 @@ const UserInfoCard = () => {
                 </div>
                 <div className='card-skills mb-2'>
                     <h5>
-                        {'В проекте разработал следующие компонетны: '}
-                        {features.map(feature => (
-                            <Badge key={feature} color={getRandomColor()} content={feature}/>
-                        ))}
+                        В проекте разработал следующие компонетны:
                     </h5>
+                    <ul>
+                        {features.map(feature => (
+                            <li key={feature}>{feature}</li>
+                        ))}
+                    </ul>
                 </div>
             </div>
         </div>
