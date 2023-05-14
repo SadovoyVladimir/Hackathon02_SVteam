@@ -19,10 +19,14 @@ export default function MemberPage() {
       <h1>Member page</h1>
       {isMemberIdExists
         ? (<div className='container'>
-            <div className='row'>
-              <UserImageCard />
-              <UserInfoCard />
-              <UserSocialNetworksCard />
+            <div className='row gutters-sm'>
+              <div className="col-4 p-1 mb-2">
+                <UserImageCard />
+                <UserSocialNetworksCard />
+              </div>
+              <div className='col-md-8 p-1 mb-2'>
+                <UserInfoCard />
+              </div>
             </div>
           </div>)
         : (<Navigate to='/'/>)}
