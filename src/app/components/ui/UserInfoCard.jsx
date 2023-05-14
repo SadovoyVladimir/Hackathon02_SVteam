@@ -11,7 +11,7 @@ const UserInfoCard = () => {
   const features = member.features.split(", ")
 
   return (
-        <div className='col-6 p-1 mb-2'>
+        <div className='col-8 p-1 mb-2'>
             <div className='card'>
                 <div className='card-header'>
                     <h3>
