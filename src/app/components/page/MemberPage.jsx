@@ -5,7 +5,7 @@ import UserInfoCard from '../ui/UserInfoCard'
 import { getMemberById, getMembers } from '../../store/memberSlice'
 import { useParams, Navigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-// import Breadcrumbs from '../ui/Breadcrumbs'
+import Breadcrumbs from '../ui/Breadcrumbs'
 
 export default function MemberPage() {
   const { memberId } = useParams()
@@ -16,6 +16,10 @@ export default function MemberPage() {
     <>
 //       <Breadcrumbs state={state} userName={`${member.name} ${member.lastName}`} />
       <h1>Member page</h1>
+      <Breadcrumbs
+        state={state}
+        userName={`${isMemberIdExists.name} ${isMemberIdExists.lastName}`}
+      />
       {isMemberIdExists ? (
         <div className='container'>
           <div className='row'>
