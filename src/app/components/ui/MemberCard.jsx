@@ -116,7 +116,13 @@ export default function MemberCard({
           <h4 className='card-title'>Возраст: {age}</h4>
           <div style={{ marginLeft: '-0.3rem', marginBottom: '1rem' }}>
             {about.map((hobby) => {
-              return <Badge key={hobby.id} color={'success'} content={hobby.content} />
+              return (
+                <Badge
+                  key={hobby.id}
+                  color={'success'}
+                  content={hobby.content}
+                />
+              )
             })}
           </div>
           <div
