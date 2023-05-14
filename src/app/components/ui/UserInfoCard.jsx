@@ -4,11 +4,15 @@ import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getMemberById } from '../../store/memberSlice'
 import getRandomColor from '../utils/getRandomColor'
+import ProgressBar from '../common/progressBar'
 
 const UserInfoCard = () => {
   const { memberId } = useParams()
   const member = useSelector(getMemberById(memberId))
   const features = member.features.split(", ")
+
+//   console.log(member)
+  const { skills } = member
 
   return (
         <div className='col-8 p-1 mb-2'>
@@ -25,9 +29,14 @@ const UserInfoCard = () => {
                     ))} */}
                     <div className='card-skills mb-2'>
                         <b>Основные навыки: </b>
-                        {/* {skills.map(s => (
-                                <Badge key={s.id} content={s.label} color={s.color}/>
-                        ))} */}
+                        <ul>
+                            {skills.map(s => (
+                                    <li key={s.id}>
+                                        <Badge content={s.name} color={s.color}/>
+                                        <ProgressBar name='Владение' value={s.value}/>
+                                    </li>
+                            ))}
+                        </ul>
                     </div>
                     <p className='card-skills mb-2'>
                         <b>Роль в команде: </b>{member.role}

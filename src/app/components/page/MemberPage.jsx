@@ -3,7 +3,7 @@ import UserImageCard from '../ui/userImageCard'
 import UserSocialNetworksCard from '../ui/UserSocialNetworksCard'
 import UserInfoCard from '../ui/UserInfoCard'
 import { getMemberById, getMembers } from '../../store/memberSlice'
-import { useParams, Navigate } from 'react-router-dom'
+import { useParams, Navigate, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import Breadcrumbs from '../ui/Breadcrumbs'
 
@@ -11,7 +11,7 @@ export default function MemberPage() {
   const { memberId } = useParams()
   const member = useSelector(getMemberById(memberId))
   const isMemberIdExists = useSelector(getMembers()).find(m => m.id === memberId)
-  const state = useSelector(getMembers()) // вопросики по этому поводу
+  const { state } = useLocation()
 
   return (
     <>
