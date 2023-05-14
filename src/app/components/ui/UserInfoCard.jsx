@@ -1,76 +1,47 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Badge from '../common/badge'
+import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import { getMemberById } from '../../store/memberSlice'
+import getRandomColor from '../utils/getRandomColor'
 
-const UserInfoCard = ({ id, about, skills, team, role, features }) => {
+const UserInfoCard = () => {
+  const { memberId } = useParams()
+  const member = useSelector(getMemberById(memberId))
+  const features = member.features.split(", ")
+
   return (
-    <>
-      <div className='col-8 p-1 mb-2'>
-        <div className='card'>
-          <div className='card-header'>
-            <h3>
-              {'Участник команды'} <b>{team}</b>
-            </h3>
-          </div>
-          <div className='card-body'>
-            {about.map((p) => (
-              <p key={p.id} className='card-text'>
-                {p.content}
-              </p>
-            ))}
-            <div className='card-skills mb-2'>
-              <b>Основные навыки: </b>
-              {skills.map((s) => (
-                <Badge key={s.id} content={s.label} color={s.color} />
-              ))}
+        <div className='col-8 p-1 mb-2'>
+            <div className='card'>
+                <div className='card-header'>
+                    <h3>
+                        {'Участник команды'}{' '}
+                        <b>{member.team}</b>
+                    </h3>
+                </div>
+                <div className='card-body'>
+                    {/* {about.map(p => (
+                        <p key={p.id} className='card-text'>{p.content}</p>
+                    ))} */}
+                    <div className='card-skills mb-2'>
+                        <b>Основные навыки: </b>
+                        {/* {skills.map(s => (
+                                <Badge key={s.id} content={s.label} color={s.color}/>
+                        ))} */}
+                    </div>
+                    <p className='card-skills mb-2'>
+                        <b>Роль в команде: </b>{member.role}
+                    </p>
+                    <p className='card-features mb-2'>
+                        <b>В проекте разработал следующие компонетны: </b>
+                        {features.map(feature => (
+                            <Badge key={feature} color={getRandomColor()} content={feature}/>
+                        ))}
+                    </p>
+                </div>
             </div>
-            <p className='card-skills mb-2'>
-              <b>Роль в команде: </b>
-              {role}
-            </p>
-            <p className='card-features mb-2'>
-              <b>В проекте разработал следующие компонетны: </b>
-              {features.map((f) => (
-                <Badge key={f.id} color='info' content={f.label} />
-              ))}
-            </p>
-          </div>
         </div>
-      </div>
-      <div className='card-body'>
-        {about.map((p) => (
-          <p key={p.id} className='card-text'>
-            {p.content}
-          </p>
-        ))}
-        <div className='card-skills mb-2'>
-          <b>Основные навыки: </b>
-          {skills.map((s) => (
-            <Badge key={s.id} content={s.label} />
-          ))}
-        </div>
-        <p className='card-skills mb-2'>
-          <b>Роль в команде: </b>
-          {role}
-        </p>
-        <p className='card-features mb-2'>
-          <b>В проекте разработал следующие компонетны: </b>
-          {features.map((f) => (
-            <Badge key={f.id} color='info' content={f.label} />
-          ))}
-        </p>
-      </div>
-    </>
   )
-}
-
-UserInfoCard.propTypes = {
-  id: PropTypes.string,
-  about: PropTypes.array,
-  skills: PropTypes.array,
-  team: PropTypes.string,
-  role: PropTypes.string,
-  features: PropTypes.array
 }
 
 export default UserInfoCard
