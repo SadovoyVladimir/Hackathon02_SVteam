@@ -45,7 +45,7 @@ const UserInfoCard = ({
 }
 
 UserInfoCard.propTypes = {
-    id: PropTypes.number,
+    id: PropTypes.string,
     about: PropTypes.array,
     skills: PropTypes.array,
     team: PropTypes.string,

@@ -12,14 +12,16 @@ export default function MainPage() {
   return (
     <>
       <h1>Main page</h1>
-      <TeamInfo
-        name={team.teamName}
-        img={team.img}
-        title={team.taskTitle}
-        description={team.description}
-      />
-      {/* <MembersList allUsers={allUsers} /> */}
-      {/* <TextField label={'текстовое поле'} htmlFor={''} name={'name'} /> */}
+      <div className="col-md-8 justify-content-md-center shadow p-4">
+        <TeamInfo
+          name={team.teamName}
+          img={team.img}
+          title={team.taskTitle}
+          description={team.description}
+        />
+        <MembersList users={users} />
+        {/* <TextField label={'текстовое поле'} htmlFor={''} name={'name'} /> */}
+      </div>
     </>
   )
 }

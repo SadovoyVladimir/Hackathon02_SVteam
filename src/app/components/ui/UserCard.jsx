@@ -12,7 +12,7 @@ export default function UserCard({
   name,
   age,
   about,
-  sotialNetworcs
+  socialNetworks
 }) {
   const [favourites, setFavourites] = useState(true)
   const handleFavourite = () => {
@@ -73,7 +73,7 @@ export default function UserCard({
         <h4 className='card-title'>{age}</h4>
         <h4 className='card-title'>{about.content}</h4>
         <div className='acontainer' style={{ margin: '0 auto' }}>
-          {sotialNetworcs.map((link) => {
+          {socialNetworks.map((link) => {
             return (
               <span key={link.id}>
                 <Button key={link.id} buttonName={link.label} />
@@ -90,6 +90,6 @@ UserCard.propTypes = {
   id: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  about: PropTypes.object.isRequired,
-  sotialNetworcs: PropTypes.array.isRequired
+  about: PropTypes.array.isRequired,
+  sotialNetworcs: PropTypes.array
 }
