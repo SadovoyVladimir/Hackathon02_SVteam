@@ -1,13 +1,10 @@
 import React from 'react'
-import UserCard from '../ui/UserCard'
-import TextField from '../common/form/TextField'
 import TeamInfo from '../ui/TeamInfo'
 import api from '../../../api'
 import MembersList from '../ui/MembersList'
 
 export default function MainPage() {
-
-  const { users, team } = api
+  const { team } = api
 
   return (
     <>
@@ -18,24 +15,7 @@ export default function MainPage() {
         title={team.taskTitle}
         description={team.description}
       />
-      {/* <UserCard
-        favourites={true}
-        name={'Игорь Жигалов'}
-        age={24}
-        birthday={'26.02.1999'}
-        additionalInfo={'Какая-либо дополнительная информация'}
-        devTask={'Созданием карточки'}
-        arrSocialMediaLinks={[
-          { name: 'vk', link: 'vk.com' },
-          { name: 'tg', link: 'tg.com' },
-          { name: 'facebook', link: 'facebook.com' }
-        ]}
-        img={
-          'https://yt3.googleusercontent.com/E424mRX4iziWCVVamYbAUt4z70Jz-BtQyprcgcFMOeks8CHtyRh7-U9QnGYqHBw8ZTeZtvF5=s900-c-k-c0x00ffffff-no-rj'
-        }
-      /> */}
       <MembersList />
-      <TextField label={'текстовое поле'} htmlFor={''} name={'name'} />
     </>
   )
 }
