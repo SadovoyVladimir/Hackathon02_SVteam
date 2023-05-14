@@ -10,12 +10,12 @@ export default function MainPage() {
   const { team } = api
 
   return (
-    <>
-      <h1>Main page</h1>
-      <div className='col-md-12 justify-content-md-center shadow p-4'>
+    <div className='row justify-content-md-center'>
+      {' '}
+      <div className='col-md-8 p-2'>
         <TeamInfo {...team} />
         <MembersList allMembers={members} />
       </div>
-    </>
+    </div>
   )
 }

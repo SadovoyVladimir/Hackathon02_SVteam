@@ -2,37 +2,31 @@ import React from 'react'
 import UserImageCard from '../ui/userImageCard'
 import UserSocialNetworksCard from '../ui/UserSocialNetworksCard'
 import UserInfoCard from '../ui/UserInfoCard'
-import { getMembers } from '../../store/memberSlice'
+import { getMemberById } from '../../store/memberSlice'
 import { useParams, Navigate, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import Breadcrumbs from '../ui/Breadcrumbs'
 
 export default function MemberPage() {
   const { memberId } = useParams()
-  const isMemberIdExists = useSelector(getMembers(memberId)).find(
-    (m) => m.id === memberId
-  )
-
   const { state } = useLocation()
+  const member = useSelector(getMemberById(memberId))
+
+  if (!member) return <Navigate to='/' />
 
   return (
     <>
-      <h1>Member page</h1>
       <Breadcrumbs
         state={state}
-        userName={`${isMemberIdExists.name} ${isMemberIdExists.lastName}`}
+        userName={`${member.name} ${member.lastName}`}
       />
-      {isMemberIdExists ? (
-        <div className='container'>
-          <div className='row'>
-            <UserImageCard />
-            <UserInfoCard />
-            <UserSocialNetworksCard />
-          </div>
+      <div className='container'>
+        <div className='row'>
+          <UserImageCard />
+          <UserInfoCard />
+          <UserSocialNetworksCard />
         </div>
-      ) : (
-        <Navigate to='/' />
-      )}
+      </div>
     </>
   )
 }
