@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams, NavLink, Navigate } from 'react-router-dom'
 
 const UserImageCard = ({
-    id,
     name,
     img,
     lastName,
@@ -11,13 +10,20 @@ const UserImageCard = ({
     city,
     country
 }) => {
-    const currentUserId = 1 // затычка. Нужно получать это значение динамически:
+    // Отображение иконки редактирования страницы пользователя можно реализовать путем сравнения memberId === currentUserId
+    // currentUserId - это id залогененного пользователя. Данные получаем из localStorage с помощью селектора:
     // const currentUserId = useSelector(getCurrentUserId());
-    const location = useLocation()
+    // данный селектор д/б задан в сущности users: export const getCurrentUserId = () => (state) => state.users.auth.userId;
+    const currentUserId = '1'
+    const { memberId } = useParams()
+    const { pathname } = useLocation()
+    const [redirect, setRedirect] = useState(false) // Пока чато редиректит на main т.к. EditMemberPage не создан
+    // <Route path="edit" element={<MemberEditPage />}/>
     const handleClick = () => {
-        const redirect = location.pathname + '/edit'
-        console.log(redirect)
+        setRedirect(prevState => !prevState)
     };
+    useEffect(() => setRedirect(false), []) // при загрузке страницы пользователя параметр redirect переводим в false
+    // значение redirect = true задается handleClick при клике на иконке edit и вызывает Navigate to= /edit
     return (
         <div className="col-4 p-1">
             <div
@@ -29,12 +35,15 @@ const UserImageCard = ({
                     shadow: "2px"
                 }}
             >
-                {currentUserId === id &&
+                {currentUserId === memberId &&
                     <button
                         className="position-absolute top-0 end-0 btn btn-light btn-sm"
                         onClick={handleClick}
                     >
                     <i className="bi bi-gear"></i>
+                    {redirect &&
+                        <Navigate to={pathname + '/edit'}/>
+                    }
                 </button>}
                 <img
                     className='card-img-top'
@@ -60,7 +69,6 @@ const UserImageCard = ({
 }
 
 UserImageCard.propTypes = {
-    id: PropTypes.number,
     name: PropTypes.string,
     img: PropTypes.string,
     lastName: PropTypes.string,
