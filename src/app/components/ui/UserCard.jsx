@@ -33,11 +33,11 @@ export default function UserCard({
     }
   }
 
-  const handleGoToProfile = () => {
-    navigate(`/member/${id}`, { state: pathname })
-  }
+  const handleGoToProfile = () => navigate(`/member/${id}`, { state: pathname })
 
   const handleGoToLink = (url) => window.open(url, '_blank')
+
+  const setBadgeColor = (role) => (role === 'Teamlead' ? 'warning' : 'primary')
 
   useEffect(() => {
     const favouritesIds = getMembersIdInLocalStorage('favourites2')
@@ -86,7 +86,11 @@ export default function UserCard({
               className='card-title'
               style={{ textAlign: 'center', marginLeft: '1rem' }}
             >
-              <Badge content={role} color='info' style={{ width: '9rem' }} />
+              <Badge
+                content={role}
+                color={setBadgeColor(role)}
+                style={{ width: '8rem' }}
+              />
             </h5>
           </div>
         </div>
@@ -128,6 +132,7 @@ export default function UserCard({
                       key={link.id}
                       buttonName={link.name}
                       buttonColor='dark'
+                      handler={() => handleGoToLink(link.url)}
                       style={{ minWidth: '5rem', marginLeft: '1rem' }}
                     />
                   </span>
@@ -166,7 +171,7 @@ export default function UserCard({
               <i className='bi bi-star-fill'></i>
             )
           }
-          buttonColor={favourites ? 'secondary' : 'success'}
+          buttonColor={favourites ? 'outline-secondary' : 'success'}
           handler={handleFavourite}
         />
         <Button
@@ -197,7 +202,11 @@ export default function UserCard({
         </h3>
         <h5 className='card-title'>Возраст: {age}</h5>
         <h5 className='card-title'>
-          <Badge content={role} color='info' />
+          <Badge
+            content={role}
+            color={setBadgeColor(role)}
+            style={{ width: '8rem' }}
+          />
         </h5>
         <div className='acontainer' style={{ margin: '0 auto' }}>
           {linksToSocialNetworks?.map((link) => {
