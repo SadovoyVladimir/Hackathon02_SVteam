@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes, { oneOfType } from 'prop-types'
+import PropTypes from 'prop-types'
 
 export default function TextField({
   label,
@@ -53,7 +53,7 @@ export default function TextField({
 
 TextField.propTypes = {
   label: PropTypes.string,
-  value: oneOfType([PropTypes.string, PropTypes.number]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string,
   onChange: PropTypes.func,
   type: PropTypes.string,

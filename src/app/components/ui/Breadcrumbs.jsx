@@ -1,9 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import Button from '../common/button'
-import { useNavigate } from 'react-router-dom'
 
-const Breadcrumbs = ({ userName, state }) => {
+const Breadcrumbs = ({ memberName, state }) => {
   const navigate = useNavigate()
   const redirectTo = (path) => navigate(path)
 
@@ -16,7 +16,7 @@ const Breadcrumbs = ({ userName, state }) => {
       />
       {'/'}
       <Button
-        buttonName={userName}
+        buttonName={memberName}
         buttonColor='link'
         additionalClasses={'disabled'}
       />
@@ -28,5 +28,5 @@ export default Breadcrumbs
 
 Breadcrumbs.propTypes = {
   state: PropTypes.string.isRequired,
-  userName: PropTypes.string.isRequired
+  memberName: PropTypes.string.isRequired
 }

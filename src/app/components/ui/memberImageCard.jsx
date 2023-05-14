@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { getMemberById } from '../../store/memberSlice'
 
-const UserImageCard = () => {
+const MemberImageCard = () => {
   const { memberId } = useParams()
   const member = useSelector(getMemberById(memberId))
 
@@ -42,4 +42,4 @@ const UserImageCard = () => {
   )
 }
 
-export default UserImageCard
+export default MemberImageCard

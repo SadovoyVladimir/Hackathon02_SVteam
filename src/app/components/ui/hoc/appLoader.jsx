@@ -12,7 +12,7 @@ export default function AppLoader({ children }) {
 
   useEffect(() => {
     dispatch(loadMembersList())
-  }, [])
+  }, [dispatch])
 
   if (isLoading) return <SpinnerLoader />
 

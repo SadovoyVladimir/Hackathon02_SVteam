@@ -6,6 +6,7 @@ import MemberPage from './components/page/MemberPage'
 import FavoritesLayout from './layouts/FavoritesLayout'
 import FavoritesPage from './components/page/FavoritesPage'
 import CreateMemberPage from './components/page/CreateMemberPage'
+import CreateMemberLayout from './layouts/CreateMemberLayout'
 
 const routes = [
   { path: '/', element: <MainPage /> },
@@ -27,8 +28,11 @@ const routes = [
   },
   {
     path: 'createMember',
-    element: <CreateMemberPage />,
-    children: [{ path: '*', element: <Navigate to='/createMember' /> }]
+    element: <CreateMemberLayout />,
+    children: [
+      { path: '', element: <CreateMemberPage /> },
+      { path: '*', element: <Navigate to='/createMember' /> }
+    ]
   },
   { path: '*', element: <Navigate to='/' /> }
 ]

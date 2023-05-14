@@ -10,7 +10,7 @@ import Badge from '../common/badge'
 import '../../../../src/index.css'
 import { setBadgeColor } from '../utils/getJobTitleColor'
 
-export default function UserCard({
+export default function MemberCard({
   configureList,
   id,
   img,
@@ -40,7 +40,7 @@ export default function UserCard({
   const handleGoToLink = (url) => window.open(url, '_blank')
 
   useEffect(() => {
-    const favouritesIds = getMembersIdInLocalStorage('favourites2')
+    const favouritesIds = getMembersIdInLocalStorage()
     if (favouritesIds.find((el) => el === id)) {
       setFavourites(false)
     }
@@ -116,7 +116,7 @@ export default function UserCard({
           <h4 className='card-title'>Возраст: {age}</h4>
           <div style={{ marginLeft: '-0.3rem', marginBottom: '1rem' }}>
             {about.map((hobby) => {
-              return <Badge color={'success'} content={hobby.content} />
+              return <Badge key={hobby.id} color={'success'} content={hobby.content} />
             })}
           </div>
           <div
@@ -241,7 +241,7 @@ export default function UserCard({
   )
 }
 
-UserCard.propTypes = {
+MemberCard.propTypes = {
   configureList: PropTypes.bool,
   id: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
@@ -250,5 +250,6 @@ UserCard.propTypes = {
   age: PropTypes.string.isRequired,
   updateFavourites: PropTypes.func,
   linksToSocialNetworks: PropTypes.array,
-  role: PropTypes.string.isRequired
+  role: PropTypes.string.isRequired,
+  about: PropTypes.arrayOf(PropTypes.object)
 }

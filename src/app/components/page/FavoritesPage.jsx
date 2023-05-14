@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { getMembersIdInLocalStorage } from '../../services/localStorage.service'
-import MembersList from '../ui/MembersList'
 import { getMembers } from '../../store/memberSlice'
+import MembersList from '../ui/MembersList'
 import EmptyFavouriteList from '../ui/EmptyFavouriteList'
 
 export default function FavoritesPage() {
@@ -10,7 +10,7 @@ export default function FavoritesPage() {
   const members = useSelector(getMembers())
 
   useEffect(() => {
-    setFavouritesMembers(getMembersIdInLocalStorage('favourites2'))
+    setFavouritesMembers(getMembersIdInLocalStorage())
   }, [])
 
   function sortFavouriteMembers(arrayAllMembers) {
@@ -28,7 +28,7 @@ export default function FavoritesPage() {
   }
 
   const updateFavourites = () => {
-    setFavouritesMembers(getMembersIdInLocalStorage('favourites2'))
+    setFavouritesMembers(getMembersIdInLocalStorage())
   }
 
   return (
