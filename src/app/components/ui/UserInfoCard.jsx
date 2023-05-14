@@ -11,6 +11,7 @@ const UserInfoCard = ({
     features
 }) => {
     return (
+      <>
         <div className='col-8 p-1 mb-2'>
             <div className='card'>
                 <div className='card-header'>
@@ -64,8 +65,7 @@ const UserInfoCard = ({
             ))}
           </p>
         </div>
-      </div>
-    </div>
+    </>
   )
 }
 

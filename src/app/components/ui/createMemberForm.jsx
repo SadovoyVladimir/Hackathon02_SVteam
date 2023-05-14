@@ -5,6 +5,8 @@ import SelectField from '../common/form/selectField'
 import TextAreaField from '../common/form/textAreaField'
 import AddLinksForm from './addLinksForm'
 import Button from '../common/button'
+import { useDispatch } from 'react-redux'
+import { createMember } from '../../store/memberSlice'
 
 export default function CreateMemberForm() {
   const initialData = {
@@ -25,9 +27,9 @@ export default function CreateMemberForm() {
     country: '',
     city: ''
   }
+  const dispatch = useDispatch()
 
   const links = []
-
   const [data, setData] = useState(initialData)
   const [address, setAddress] = useState(initialAddress)
   const teams = [
@@ -61,6 +63,7 @@ export default function CreateMemberForm() {
     data.linksToSocialNetworks = links
     data.address = address
     console.log(data)
+    dispatch(createMember(data))
   }
 
   return (

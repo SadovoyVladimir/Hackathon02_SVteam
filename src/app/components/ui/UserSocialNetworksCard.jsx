@@ -25,8 +25,6 @@ const UserSocialNetworksCard = ({ user }) => {
                 </div>
             </div>
         </div>
-      </div>
-    </div>
   )
 }
 
