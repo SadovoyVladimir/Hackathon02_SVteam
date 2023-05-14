@@ -50,14 +50,13 @@ const MembersList = ({
 
   return (
     <>
-      {favouritesMembersCount > 0 ||
-        (pathname === '/' && (
-          <Button
-            handler={() => updateState(!configureList)}
-            buttonName={'Изменить вид списка'}
-            className='mb-4'
-          />
-        ))}
+      {allMembers && (
+        <Button
+          handler={() => updateState(!configureList)}
+          buttonName={'Изменить вид списка'}
+          className='mb-4'
+        />
+      )}
       <div className='col-md-12' style={styleList}>
         {allMembers.map((member) => {
           return (

@@ -8,15 +8,21 @@ const Breadcrumbs = ({ userName, state }) => {
   const redirectTo = (path) => navigate(path)
 
   return (
-    <nav aria-label='breadcrumb'>
-      <Button
-        buttonName={state === '/' ? 'Main' : 'Favourites'}
-        buttonColor='link'
-        handler={() => redirectTo(state)}
-      />
-      {'/'}
-      <Button buttonName={userName} buttonColor='link' />
-    </nav>
+    <>
+      <nav aria-label='breadcrumb'>
+        <Button
+          buttonName={state === '/' ? 'Main' : 'Favourites'}
+          buttonColor='link'
+          handler={() => redirectTo(state)}
+        />
+        {'/'}
+        <Button
+          buttonName={userName}
+          buttonColor='link'
+          additionalClasses={'disabled'}
+        />
+      </nav>
+    </>
   )
 }
 
