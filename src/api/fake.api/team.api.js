@@ -1,18 +1,20 @@
 const team = {
   id: 'sdg32dfh32h13fh',
-  img: 'https://4.downloader.disk.yandex.ru/preview/338a9a7f3c7ad3d284d777f3fe95fb28debd3a08e40de3a0fd482aa9bab6f754/inf/sTyZc6yfIrl-im0CrEC11hl2cMBf5ysnpwYYqdRsk6GUeXnAv3e6RKzV_6RmXlmxanRtHMiujpQVWXjjSO1b_w%3D%3D?uid=14847029&filename=%D0%A0%D0%B0%D0%B7%D0%B1%D0%BE%D1%80%D0%BA%D0%B0%20%D0%BF%D0%B8%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B0%D1%8F.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=14847029&tknv=v2&size=1920x1057',
-  name: 'Это разборка питерская',
+  img: 'https://sun9-19.userapi.com/impg/Ud3q3YFfU50y9mlyu_SyMYx9DRYOI7lYuudn9A/mq8mCvkQVIg.jpg?size=1230x240&quality=95&sign=5d427975c24e297e312e04dfec426883&type=album',
+  teamName: 'Это разборка питерская',
   hackathonTeam: 2,
   title: 'Разработка сайта с информацией о участниках команды',
   description: [
     {
-      id: 1,
+      id: '1',
       content:
-        'Разработка полноценного сайта с использованием React.sj с информацией о команде'
+        'Наша команда реализовала сайт, который содержит информацию о нашей команде. В связи с тем, что все участники команды из Санкт-Петербурга, было принято решение отразить это в названии. Ничего более оригинального придумать мы не смогли, поэтому как есть.'
     },
-    { id: 2, content: 'Абзац с информацией 1' },
-    { id: 3, content: 'Абзац с информацией 2' },
-    { id: 4, content: 'Абзац с информацией 3' }
+    { 
+      id: '2',
+      content: 'При реализации данного проекта были использованы технологии, о которых подробно рассказывается на курсе Junior Frontend Developer от школы Result School. Данное приложение реализовано на технологии React.js с применением Bootstrap v5 для оформления страниц. Также наша команда использовала библиотеки Redux для работы с состоянием, Axios, React Router v6, Prop Types и т.д.'
+    },
+    { id: '3', content: 'Среди прочего были реализованы основные задания поставленные перед командой: Создание переиспльзуемых компонентов таких как карточка пользователя, Button, и Badge. Также были реализованы Navbar, Progress bar, Breadcrumbs.' }
   ]
 }
 
