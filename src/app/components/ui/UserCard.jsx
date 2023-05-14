@@ -19,7 +19,8 @@ export default function UserCard({
   age,
   updateFavourites,
   linksToSocialNetworks,
-  role
+  role,
+  about
 }) {
   const [favourites, setFavourites] = useState(true)
   const navigate = useNavigate()
@@ -113,7 +114,11 @@ export default function UserCard({
           </div>
 
           <h4 className='card-title'>Возраст: {age}</h4>
-
+          <div style={{ marginLeft: '-0.3rem', marginBottom: '1rem' }}>
+            {about.map((hobby) => {
+              return <Badge color={'success'} content={hobby.content} />
+            })}
+          </div>
           <div
             className='acontainer'
             style={{

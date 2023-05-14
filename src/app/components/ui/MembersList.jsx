@@ -44,6 +44,8 @@ const MembersList = ({ allMembers, updateFavourites }) => {
       : setStyleList(firstConfiguration)
   }, [configureList])
 
+  // console.log(allMembers)
+
   return (
     <>
       {allMembers && (
