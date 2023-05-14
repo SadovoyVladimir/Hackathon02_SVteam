@@ -21,7 +21,7 @@ export default function FavoritesPage() {
   const user1 = {
     id: '1',
     img: 'URL',
-    name: 'name',
+    name: 'Василий',
     lastName: 'last name',
     age: 'number',
     addres: {
@@ -49,7 +49,7 @@ export default function FavoritesPage() {
   const user2 = {
     id: '2',
     img: 'URL',
-    name: '2',
+    name: 'Андрей',
     lastName: 'last name',
     age: 'number',
     addres: {
@@ -77,7 +77,7 @@ export default function FavoritesPage() {
   const user3 = {
     id: '3',
     img: 'URL',
-    name: '3',
+    name: 'Кристина',
     lastName: 'last name',
     age: 'number',
     addres: {
