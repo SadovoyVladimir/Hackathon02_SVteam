@@ -19,7 +19,11 @@ const secondConfiguration = {
   marginTop: '1rem'
 }
 
-const MembersList = ({ allMembers, updateFavourites }) => {
+const MembersList = ({
+  allMembers,
+  updateFavourites,
+  favouritesMembersCount
+}) => {
   const [configureList, setConfigureList] = useState(false)
   const [styleList, setStyleList] = useState({})
   const { pathname } = useLocation()
@@ -46,13 +50,14 @@ const MembersList = ({ allMembers, updateFavourites }) => {
 
   return (
     <>
-      {allMembers && (
-        <Button
-          handler={() => updateState(!configureList)}
-          buttonName={'Изменить вид списка'}
-          className='mb-4'
-        />
-      )}
+      {favouritesMembersCount > 0 ||
+        (pathname === '/' && (
+          <Button
+            handler={() => updateState(!configureList)}
+            buttonName={'Изменить вид списка'}
+            className='mb-4'
+          />
+        ))}
       <div className='col-md-12' style={styleList}>
         {allMembers.map((member) => {
           return (
@@ -73,6 +78,7 @@ const MembersList = ({ allMembers, updateFavourites }) => {
 export default MembersList
 
 MembersList.propTypes = {
+  favouritesMembersCount: PropTypes.number,
   allMembers: PropTypes.array,
   updateFavourites: PropTypes.func
 }

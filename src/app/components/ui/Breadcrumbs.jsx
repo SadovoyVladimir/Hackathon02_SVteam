@@ -9,19 +9,13 @@ const Breadcrumbs = ({ userName, state }) => {
 
   return (
     <nav aria-label='breadcrumb'>
-      <ol className='breadcrumb'>
-        <li className='breadcrumb-item'>
-          <Button
-            buttonName={state === '/' ? 'Main' : 'Favourites'}
-            buttonColor='link'
-            handler={() => redirectTo(state)}
-            style={{ marginBottom: '2rem' }}
-          />
-        </li>
-        <li className='breadcrumb-item active' aria-current='page'>
-          <Button buttonName={userName} buttonColor='link' />
-        </li>
-      </ol>
+      <Button
+        buttonName={state === '/' ? 'Main' : 'Favourites'}
+        buttonColor='link'
+        handler={() => redirectTo(state)}
+      />
+      {'/'}
+      <Button buttonName={userName} buttonColor='link' />
     </nav>
   )
 }
