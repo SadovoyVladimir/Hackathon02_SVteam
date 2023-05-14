@@ -5,21 +5,13 @@ import UserSocialNetworksCard from '../ui/UserSocialNetworksCard'
 import UserInfoCard from '../ui/UserInfoCard'
 
 import Breadcrumbs from '../ui/Breadcrumbs'
-import { useLocation, useNavigation, useParams } from 'react-router-dom'
-
-export default function MemberPage() {
-  const { users } = api
-  const { state } = useLocation()
-
-  const userId = 1
-  const user = users.find((user) => user.id === userId)
-
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 
 export default function MemberPage() {
   const { users } = api
   const { memberId } = useParams()
   const user = users.find(user => user.id === memberId)
+  const { state } = useLocation()
 
   return (
     <>

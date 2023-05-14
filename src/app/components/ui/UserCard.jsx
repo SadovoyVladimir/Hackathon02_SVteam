@@ -91,12 +91,11 @@ export default function UserCard({
             buttonColor='dark'
             handler={handleGoToProfile}
           />
-          {/* <h5 className='card-title'>{name}</h5> */}
           <h4 className='card-title'>{age}</h4>
           <h4 className='card-title'>{'about.content'}</h4>
           <div className='acontainer' style={{ margin: '0 auto' }}>
-            {sotialNetworcs &&
-              sotialNetworcs.map((link) => {
+            {socialNetworks &&
+              socialNetworks.map((link) => {
                 return (
                   <span key={link.id}>
                     <Button key={link.id} buttonName={link.label} />
@@ -160,8 +159,8 @@ export default function UserCard({
         <h4 className='card-title'>{age}</h4>
         <h4 className='card-title'>{'about.content'}</h4>
         <div className='acontainer' style={{ margin: '0 auto' }}>
-          {sotialNetworcs &&
-            sotialNetworcs.map((link) => {
+          {socialNetworks &&
+            socialNetworks.map((link) => {
               return (
                 <span key={link.id}>
                   <Button key={link.id} buttonName={link.label} />
@@ -179,5 +178,5 @@ UserCard.propTypes = {
   img: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   about: PropTypes.array.isRequired,
-  sotialNetworcs: PropTypes.array
+  socialNetworks: PropTypes.array
 }
