@@ -52,8 +52,8 @@ function isOutdated(date) {
 export const createMember = (payload) => async (dispatch) => {
   dispatch(memberCreateRequested())
   try {
-    const { data } = await memberService.create(payload)
-    dispatch(memberCreated(data))
+    dispatch(memberCreated(payload))
+    await memberService.create(payload)
   } catch (error) {
     dispatch(createMemberFailed(error.message))
   }

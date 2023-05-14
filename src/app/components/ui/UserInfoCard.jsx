@@ -10,7 +10,7 @@ const UserInfoCard = () => {
   const member = useSelector(getMemberById(memberId))
   const features = member.features.split(", ")
 
-    return (
+  return (
         <div className='col-8 p-1 mb-2'>
             <div className='card'>
                 <div className='card-header'>

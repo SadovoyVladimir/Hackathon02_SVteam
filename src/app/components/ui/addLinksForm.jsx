@@ -26,9 +26,7 @@ export default function AddLinksForm({ changeLink }) {
           memLink={link}
           changeLink={changeLink}
           index={index}
-        >
-          New Link
-        </AddLink>
+        />
       ))}
       <Button
         buttonType='button'

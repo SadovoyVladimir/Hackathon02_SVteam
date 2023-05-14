@@ -43,12 +43,12 @@ const UserImageCard = () => {
 }
 
 UserImageCard.propTypes = {
-    name: PropTypes.string,
-    img: PropTypes.string,
-    lastName: PropTypes.string,
-    age: PropTypes.number,
-    city: PropTypes.string,
-    country: PropTypes.string
+  name: PropTypes.string,
+  img: PropTypes.string,
+  lastName: PropTypes.string,
+  age: PropTypes.number,
+  city: PropTypes.string,
+  country: PropTypes.string
 }
 
 export default UserImageCard
