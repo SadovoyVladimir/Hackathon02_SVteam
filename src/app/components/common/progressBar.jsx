@@ -21,7 +21,7 @@ const ProgressBar = ({ name, value, color = 'primary', isAnimated = true }) => {
 
 ProgressBar.propTypes = {
   name: PropTypes.string,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired,
   color: PropTypes.string,
   isAnimated: PropTypes.bool
 }
