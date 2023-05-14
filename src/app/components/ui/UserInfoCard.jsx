@@ -20,7 +20,6 @@ const UserInfoCard = () => {
         </div>
         <div className='card-body'>
           {/* {about.map(p => (
-
                         <p key={p.id} className='card-text'>{p.content}</p>
                     ))} */}
           <div className='card-skills mb-2'>
