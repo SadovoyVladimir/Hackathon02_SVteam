@@ -26,21 +26,8 @@ export const member = {
   about: [
     {
       id: 'number',
-      content: 'text',
-      img: 'URL'
+      content: 'text'
     }
   ],
   skills: [{ id: 'number', name: 'name', value: 'number' }]
 }
-
-// Бонусом можно реализовать через разные сущности
-// const skills = [
-//     {id: "number", label: "label"}
-// ]
-
-// const sotialNetworcs = [
-//     {id: "number", label: "label", url: "URL", img: "URL"},
-//     {id: "number", label: "label", url: "URL", img: "URL"},
-//     {id: "number", label: "label", url: "URL", img: "URL"},
-//     {id: "number", label: "label", url: "URL", img: "URL"}
-// ]

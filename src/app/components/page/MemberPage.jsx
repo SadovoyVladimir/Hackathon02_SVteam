@@ -10,7 +10,7 @@ import { useLocation, useParams } from 'react-router-dom'
 export default function MemberPage() {
   const { users } = api
   const { memberId } = useParams()
-  const user = users.find(user => user.id === memberId)
+  const user = users.find((user) => user.id === memberId)
   const { state } = useLocation()
 
   return (

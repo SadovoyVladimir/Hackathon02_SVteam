@@ -14,17 +14,23 @@ export default function TextField({
   }
 
   const renderMin = () => {
-    if (type === 'number') {
+    if (type === 'number' || type === 'range') {
       return 0
     }
     return null
   }
   const renderMax = () => {
-    if (type === 'number') {
-      return 150
+    if (type === 'number' || type === 'range') {
+      return 100
     }
     return null
   }
+  const getClass = () => {
+    if (type !== 'range') {
+      return 'form-control'
+    }
+  }
+
   return (
     <div className='mb-4'>
       <label htmlFor={name}>{label}</label>
@@ -37,8 +43,9 @@ export default function TextField({
           min={renderMin()}
           max={renderMax()}
           onChange={handleChange}
-          className='form-control'
+          className={getClass()}
         />
+        {type === 'range' && <span>{value}%</span>}
       </div>
     </div>
   )

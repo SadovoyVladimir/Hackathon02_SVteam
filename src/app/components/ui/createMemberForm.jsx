@@ -7,6 +7,9 @@ import AddLinksForm from './addLinksForm'
 import Button from '../common/button'
 import { useDispatch } from 'react-redux'
 import { createMember } from '../../store/memberSlice'
+import AddSkillsForm from './addSkillsForm'
+import AddHobbiesForm from './addHobbiesForm'
+import { useNavigate } from 'react-router-dom'
 
 export default function CreateMemberForm() {
   const initialData = {
@@ -17,10 +20,7 @@ export default function CreateMemberForm() {
     age: 0,
     hackathonTeam: '',
     role: '',
-    features: '',
-    linksToSocialNetworks: [],
-    about: [],
-    skills: []
+    features: ''
   }
 
   const initialAddress = {
@@ -28,8 +28,11 @@ export default function CreateMemberForm() {
     city: ''
   }
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const links = []
+  const skills = []
+  const hobbies = []
   const [data, setData] = useState(initialData)
   const [address, setAddress] = useState(initialAddress)
   const teams = [
@@ -58,12 +61,36 @@ export default function CreateMemberForm() {
     }
   }
 
-  const handleSubmit = (e) => {
+  const handleChangeSkill = (changedSkill) => {
+    if (skills.find((skill) => skill.id === changedSkill.id)) {
+      const index = skills.findIndex((skill) => skill.id === changedSkill.id)
+      skills[index] = changedSkill
+    } else {
+      skills.push(changedSkill)
+    }
+  }
+
+  const handleChangeHobby = (changedHobbie) => {
+    if (hobbies.find((hobby) => hobby.id === changedHobbie.id)) {
+      const index = hobbies.findIndex((skill) => skill.id === changedHobbie.id)
+      hobbies[index] = changedHobbie
+    } else {
+      hobbies.push(changedHobbie)
+    }
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    data.linksToSocialNetworks = links
-    data.address = address
-    console.log(data)
-    dispatch(createMember(data))
+    const newData = {
+      ...data,
+      address,
+      linksToSocialNetworks: links,
+      skills,
+      about: hobbies
+    }
+    console.log(newData)
+    await dispatch(createMember(newData))
+    navigate('/')
   }
 
   return (
@@ -141,8 +168,16 @@ export default function CreateMemberForm() {
       <div>
         <h3>О себе</h3>
         <AddLinksForm changeLink={handleChangeLink} />
+        <AddSkillsForm changeSkill={handleChangeSkill} />
+        <AddHobbiesForm changeHobby={handleChangeHobby} />
       </div>
-      <Button buttonType='submit' buttonName='Submit' />
+      <div className='d-flex justify-content-center'>
+        <Button
+          buttonType='submit'
+          buttonName='Create'
+          style={{ width: 50 + '%' }}
+        />
+      </div>
     </form>
   )
 }
