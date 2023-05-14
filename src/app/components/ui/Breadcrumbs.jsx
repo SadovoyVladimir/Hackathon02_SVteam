@@ -8,29 +8,27 @@ const Breadcrumbs = ({ userName, state }) => {
   const redirectTo = (path) => navigate(path)
 
   return (
-    <nav aria-label='breadcrumb'>
-      <ol className='breadcrumb'>
-        <li className='breadcrumb-item'>
-          <Button
-            buttonName={state === '/' ? 'Main' : 'Favourites'}
-            buttonColor='link'
-            handler={() => redirectTo(state)}
-            style={{ marginBottom: '2rem' }}
-          />
-        </li>
-        <li className='breadcrumb-item active' aria-current='page'>
-          <Button buttonName={userName} buttonColor='link' />
-        </li>
-      </ol>
-    </nav>
+    <>
+      <nav aria-label='breadcrumb'>
+        <Button
+          buttonName={state === '/' ? 'Main' : 'Favourites'}
+          buttonColor='link'
+          handler={() => redirectTo(state)}
+        />
+        {'/'}
+        <Button
+          buttonName={userName}
+          buttonColor='link'
+          additionalClasses={'disabled'}
+        />
+      </nav>
+    </>
   )
 }
 
 export default Breadcrumbs
 
 Breadcrumbs.propTypes = {
-  //   pathname: PropTypes.string.isRequired,
   state: PropTypes.string,
   userName: PropTypes.string.isRequired
-  //   about: PropTypes.object.isRequired,
 }

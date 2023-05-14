@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux'
 import { getMemberById } from '../../store/memberSlice'
 
 const UserSocialNetworksCard = () => {
-    const { memberId } = useParams()
-    const member = useSelector(getMemberById(memberId))
+  const { memberId } = useParams()
+  const member = useSelector(getMemberById(memberId))
 
     return (
         <div className='card p-1 mb-2'>

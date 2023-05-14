@@ -13,7 +13,16 @@ export default function AppLoader({ children }) {
     dispatch(loadMembersList())
   }, [])
 
-  if (isLoading) return 'Loading...'
+  if (isLoading)
+    return (
+      <>
+        <div class='d-flex justify-content-center'>
+          <div class='spinner-border' role='status'>
+            <span class='sr-only'></span>
+          </div>
+        </div>
+      </>
+    )
 
   return children
 }

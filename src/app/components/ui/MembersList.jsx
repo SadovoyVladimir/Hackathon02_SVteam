@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import UserCard from './UserCard'
 import PropTypes from 'prop-types'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import Button from '../common/button'
 
 const firstConfiguration = {
@@ -19,7 +19,11 @@ const secondConfiguration = {
   marginTop: '1rem'
 }
 
-const MembersList = ({ allUsers, updateFavourites }) => {
+const MembersList = ({
+  allMembers,
+  updateFavourites,
+  favouritesMembersCount
+}) => {
   const [configureList, setConfigureList] = useState(false)
   const [styleList, setStyleList] = useState({})
   const { pathname } = useLocation()
@@ -30,8 +34,6 @@ const MembersList = ({ allUsers, updateFavourites }) => {
     setConfigureList(value)
     localStorage.setItem(keyPage, JSON.stringify(value))
   }
-
-  // console.log(allUsers)
 
   useEffect(() => {
     const storedState = localStorage.getItem(keyPage)
@@ -48,7 +50,7 @@ const MembersList = ({ allUsers, updateFavourites }) => {
 
   return (
     <>
-      {allUsers && (
+      {allMembers && (
         <Button
           handler={() => updateState(!configureList)}
           buttonName={'Изменить вид списка'}
@@ -56,7 +58,7 @@ const MembersList = ({ allUsers, updateFavourites }) => {
         />
       )}
       <div className='col-md-12' style={styleList}>
-        {allUsers.map((member) => {
+        {allMembers.map((member) => {
           return (
             <UserCard
               updateFavourites={updateFavourites}
@@ -75,6 +77,7 @@ const MembersList = ({ allUsers, updateFavourites }) => {
 export default MembersList
 
 MembersList.propTypes = {
-  allUsers: PropTypes.array,
+  favouritesMembersCount: PropTypes.number,
+  allMembers: PropTypes.array,
   updateFavourites: PropTypes.func
 }

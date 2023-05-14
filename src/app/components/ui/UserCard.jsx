@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Button from '../common/button'
 import {
   getMembersIdInLocalStorage,
   toggleMemberToLocalStorage
 } from '../../services/localStorage.service'
-import { useLocation, useNavigate } from 'react-router-dom'
 import Badge from '../common/badge'
 import '../../../../src/index.css'
 
@@ -33,18 +33,18 @@ export default function UserCard({
     }
   }
 
-  const handleGoToProfile = () => {
-    navigate(`/member/${id}`, { state: pathname })
-  }
+  const handleGoToProfile = () => navigate(`/member/${id}`, { state: pathname })
 
   const handleGoToLink = (url) => window.open(url, '_blank')
 
+  const setBadgeColor = (role) => (role === 'Teamlead' ? 'warning' : 'primary')
+
   useEffect(() => {
     const favouritesIds = getMembersIdInLocalStorage('favourites2')
-    if (favouritesIds.find((el) => el == id)) {
+    if (favouritesIds.find((el) => el === id)) {
       setFavourites(false)
     }
-  }, [])
+  }, [id])
 
   if (configureList) {
     return (
@@ -76,7 +76,6 @@ export default function UserCard({
                 width: '10rem',
                 height: '10rem',
                 borderRadius: '50%',
-                margin: '0 auto',
                 marginLeft: '2.5rem',
                 alignSelf: 'center',
                 boxShadow: '2px 2px 2px #F4AAB9',
@@ -87,7 +86,11 @@ export default function UserCard({
               className='card-title'
               style={{ textAlign: 'center', marginLeft: '1rem' }}
             >
-              <Badge content={role} color='info' style={{ width: '9rem' }} />
+              <Badge
+                content={role}
+                color={setBadgeColor(role)}
+                style={{ width: '8rem' }}
+              />
             </h5>
           </div>
         </div>
@@ -121,21 +124,22 @@ export default function UserCard({
               marginLeft: '-1rem'
             }}
           >
-            {linksToSocialNetworks &&
-              linksToSocialNetworks.map((link) => {
-                if (link.name) {
-                  return (
-                    <span key={link.id} style={{}}>
-                      <Button
-                        key={link.id}
-                        buttonName={link.name}
-                        buttonColor='dark'
-                        style={{ minWidth: '5rem', marginLeft: '1rem' }}
-                      />
-                    </span>
-                  )
-                }
-              })}
+            {linksToSocialNetworks?.map((link) => {
+              if (link.name) {
+                return (
+                  <span key={link.id} style={{}}>
+                    <Button
+                      key={link.id}
+                      buttonName={link.name}
+                      buttonColor='dark'
+                      handler={() => handleGoToLink(link.url)}
+                      style={{ minWidth: '5rem', marginLeft: '1rem' }}
+                    />
+                  </span>
+                )
+              }
+              return null
+            })}
           </div>
         </div>
       </div>
@@ -146,8 +150,6 @@ export default function UserCard({
       className='card'
       style={{
         width: '20rem',
-        // minWidth: '20rem',
-        // maxWidth: '25rem',
         textAlign: 'center',
         padding: '1rem',
         marginLeft: '3px',
@@ -169,7 +171,7 @@ export default function UserCard({
               <i className='bi bi-star-fill'></i>
             )
           }
-          buttonColor={favourites ? 'secondary' : 'success'}
+          buttonColor={favourites ? 'outline-secondary' : 'success'}
           handler={handleFavourite}
         />
         <Button
@@ -200,31 +202,35 @@ export default function UserCard({
         </h3>
         <h5 className='card-title'>Возраст: {age}</h5>
         <h5 className='card-title'>
-          <Badge content={role} color='info' />
+          <Badge
+            content={role}
+            color={setBadgeColor(role)}
+            style={{ width: '8rem' }}
+          />
         </h5>
         <div className='acontainer' style={{ margin: '0 auto' }}>
-          {linksToSocialNetworks &&
-            linksToSocialNetworks.map((link) => {
-              if (link.name) {
-                return (
-                  <div
+          {linksToSocialNetworks?.map((link) => {
+            if (link.name) {
+              return (
+                <div
+                  key={link.id}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    marginTop: '0.33rem'
+                  }}
+                >
+                  <Button
+                    buttonColor='dark'
                     key={link.id}
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      marginTop: '0.33rem'
-                    }}
-                  >
-                    <Button
-                      buttonColor='dark'
-                      key={link.id}
-                      buttonName={link.name}
-                      handler={() => handleGoToLink(link.url)}
-                    />
-                  </div>
-                )
-              }
-            })}
+                    buttonName={link.name}
+                    handler={() => handleGoToLink(link.url)}
+                  />
+                </div>
+              )
+            }
+            return null
+          })}
         </div>
       </div>
     </div>
@@ -232,10 +238,13 @@ export default function UserCard({
 }
 
 UserCard.propTypes = {
+  configureList: PropTypes.bool,
   id: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired,
+  age: PropTypes.string.isRequired,
   about: PropTypes.array,
+  updateFavourites: PropTypes.func,
   linksToSocialNetworks: PropTypes.array
 }

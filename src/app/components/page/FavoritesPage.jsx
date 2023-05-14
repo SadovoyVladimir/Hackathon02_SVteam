@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { getMembersIdInLocalStorage } from '../../services/localStorage.service'
 import MembersList from '../ui/MembersList'
 import { getMembers } from '../../store/memberSlice'
-import { useSelector } from 'react-redux'
 
 export default function FavoritesPage() {
   const [favouritesMembers, setFavouritesMembers] = useState([])
@@ -12,101 +12,6 @@ export default function FavoritesPage() {
     setFavouritesMembers(getMembersIdInLocalStorage('favourites2'))
   }, [])
 
-  const team2 = {
-    id: 'number',
-    img: 'URL',
-    groupName: 'Group name',
-    hackathonTeamName: 'number',
-    taskTitle: 'name',
-    description: 'description'
-  }
-
-  const user1 = {
-    id: '1',
-    img: 'URL',
-    name: 'Василий',
-    lastName: 'last name',
-    age: 'number',
-    addres: {
-      country: 'country',
-      city: 'city'
-    },
-    hackathonTeam: { id: team2.id },
-    sotialNetworcs: [
-      // {id: sotialNetworcs.id} // реализация через отдельную сущность
-      { id: 'number', label: 'label', url: 'URL', img: 'URL' }
-    ],
-    about: {
-      id: 'number',
-      content: 'text',
-      img: 'URL'
-    },
-    role: 'role in progect',
-    features: [{ id: 'number1', label: 'label' }],
-    skills: [
-      // {id: "skills.id"}, // реализация через отдельную сущность
-      { id: 'number', label: 'label' }
-    ]
-  }
-
-  const user2 = {
-    id: '2',
-    img: 'URL',
-    name: 'Андрей',
-    lastName: 'last name',
-    age: 'number',
-    addres: {
-      country: 'country',
-      city: 'city'
-    },
-    hackathonTeam: { id: team2.id },
-    sotialNetworcs: [
-      // {id: sotialNetworcs.id} // реализация через отдельную сущность
-      { id: 'number2', label: 'label', url: 'URL', img: 'URL' }
-    ],
-    about: {
-      id: 'number',
-      content: 'text',
-      img: 'URL'
-    },
-    role: 'role in progect',
-    features: [{ id: 'number', label: 'label' }],
-    skills: [
-      // {id: "skills.id"}, // реализация через отдельную сущность
-      { id: 'number', label: 'label' }
-    ]
-  }
-
-  const user3 = {
-    id: '3',
-    img: 'URL',
-    name: 'Кристина',
-    lastName: 'last name',
-    age: 'number',
-    addres: {
-      country: 'country',
-      city: 'city'
-    },
-    hackathonTeam: { id: team2.id },
-    sotialNetworcs: [
-      // {id: sotialNetworcs.id} // реализация через отдельную сущность
-      { id: 'number3', label: 'label', url: 'URL', img: 'URL' }
-    ],
-    about: {
-      id: 'number',
-      content: 'text',
-      img: 'URL'
-    },
-    role: 'role in progect',
-    features: [{ id: 'number', label: 'label' }],
-    skills: [
-      // {id: "skills.id"}, // реализация через отдельную сущность
-      { id: 'number', label: 'label' }
-    ]
-  }
-
-  const allUsers = [user1, user2, user3]
-
   function sortFavouriteMembers(arrayAllMembers) {
     let sortedArray = []
     arrayAllMembers.forEach((member) => {
@@ -115,6 +20,7 @@ export default function FavoritesPage() {
           sortedArray.push(member)
           return member
         }
+        return null
       })
     })
     return sortedArray
@@ -129,11 +35,19 @@ export default function FavoritesPage() {
       {favouritesMembers.length > 0 ? (
         <MembersList
           updateFavourites={updateFavourites}
-          allUsers={sortFavouriteMembers(members)}
+          allMembers={sortFavouriteMembers(members)}
           visualConfig={'firstConfig'}
+          favouritesMembersCount={favouritesMembers.length}
         />
       ) : (
-        <h1>Нет избранных</h1>
+        <div>
+          <h1>Нет избранных</h1>
+          <img
+            src='https://www.pngmart.com/files/11/Sad-Keanu-Reeves-PNG-Clipart.png'
+            alt='Keanu-Reeves-Sad'
+            style={{ width: '20rem', height: '13rem' }}
+          />
+        </div>
       )}
     </>
   )

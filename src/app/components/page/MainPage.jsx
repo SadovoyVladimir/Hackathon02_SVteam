@@ -10,19 +10,12 @@ export default function MainPage() {
   const { team } = api
 
   return (
-    <>
-      <h1>Main page</h1>
-        <div className='row justify-content-md-center'>
-          <div className='col-md-8 p-2'>
-            <TeamInfo
-              name={team.teamName}
-              img={team.img}
-              title={team.taskTitle}
-              description={team.description}
-            />
-            <MembersList allUsers={members} />
-          </div>
-        </div>
-    </>
+    <div className='row justify-content-md-center'>
+      {' '}
+      <div className='col-md-8 p-2'>
+        <TeamInfo {...team} />
+        <MembersList allMembers={members} />
+      </div>
+    </div>
   )
 }

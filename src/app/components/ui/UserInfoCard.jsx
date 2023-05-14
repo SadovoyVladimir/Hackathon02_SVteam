@@ -1,10 +1,10 @@
 import React from 'react'
-import Badge from '../common/badge'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getMemberById } from '../../store/memberSlice'
 import getRandomColor from '../utils/getRandomColor'
 import ProgressBar from '../common/progressBar'
+import Badge from '../common/badge'
 
 const UserInfoCard = () => {
   const { memberId } = useParams()

@@ -6,12 +6,13 @@ const Button = ({
   buttonColor = 'primary',
   handler,
   buttonName,
-  buttonType
+  buttonType,
+  additionalClasses
 }) => {
   return (
     <button
       style={style}
-      className={`btn btn-${buttonColor}`}
+      className={`btn btn-${buttonColor} ${additionalClasses}`}
       onClick={handler}
       type={buttonType}
     >
@@ -25,7 +26,8 @@ Button.propTypes = {
   buttonColor: PropTypes.string,
   handler: PropTypes.func,
   buttonName: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  buttonType: PropTypes.string
+  buttonType: PropTypes.string,
+  additionalClasses: PropTypes.string
 }
 
 export default Button
