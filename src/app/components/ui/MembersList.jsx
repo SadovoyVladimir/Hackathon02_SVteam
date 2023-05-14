@@ -31,6 +31,8 @@ const MembersList = ({ allUsers, updateFavourites }) => {
     localStorage.setItem(keyPage, JSON.stringify(value))
   }
 
+  console.log(allUsers)
+
   useEffect(() => {
     const storedState = localStorage.getItem(keyPage)
     if (storedState !== null) {
@@ -38,16 +40,10 @@ const MembersList = ({ allUsers, updateFavourites }) => {
     }
   }, [])
 
-  const changeVisual = () => {
-    if (!configureList) {
-      return firstConfiguration
-    } else {
-      return secondConfiguration
-    }
-  }
-
   useEffect(() => {
-    setStyleList(changeVisual())
+    configureList
+      ? setStyleList(secondConfiguration)
+      : setStyleList(firstConfiguration)
   }, [configureList])
 
   return (
@@ -59,7 +55,7 @@ const MembersList = ({ allUsers, updateFavourites }) => {
           className='mb-4'
         />
       )}
-      <div className='' style={styleList}>
+      <div className='col-md-12' style={styleList}>
         {allUsers.map((member) => {
           return (
             <UserCard
