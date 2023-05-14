@@ -22,7 +22,7 @@ export default function MemberPage() {
       />
       <div className='container'>
         <div className='row gutters-sm'>
-          <div className="col-4 p-1 mb-2">
+          <div className='col-4 p-1 mb-2'>
             <UserImageCard />
             <UserSocialNetworksCard />
           </div>
