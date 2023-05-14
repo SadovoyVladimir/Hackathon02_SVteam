@@ -37,6 +37,7 @@ export default function FavoritesPage() {
           updateFavourites={updateFavourites}
           allMembers={sortFavouriteMembers(members)}
           visualConfig={'firstConfig'}
+          favouritesMembersCount={favouritesMembers.length}
         />
       ) : (
         <h1>Нет избранных</h1>
