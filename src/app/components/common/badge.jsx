@@ -11,8 +11,8 @@ const Badge = ({ color = 'primary', content, style }) => {
 
 Badge.propTypes = {
   color: PropTypes.string,
-  content: PropTypes.string.isRequired,
   style: PropTypes.object
+  content: PropTypes.string
 }
 
 export default Badge

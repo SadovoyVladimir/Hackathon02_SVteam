@@ -238,4 +238,5 @@ UserCard.propTypes = {
   lastName: PropTypes.string.isRequired,
   about: PropTypes.array,
   linksToSocialNetworks: PropTypes.array
+  sotialNetworcs: PropTypes.array
 }

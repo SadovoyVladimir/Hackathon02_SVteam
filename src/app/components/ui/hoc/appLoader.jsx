@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getMembersLoadingStatus, loadMembersList } from '../../../store/memberSlice'
+import {
+  getMembersLoadingStatus,
+  loadMembersList
+} from '../../../store/memberSlice'
 
 export default function AppLoader({ children }) {
   const dispatch = useDispatch()

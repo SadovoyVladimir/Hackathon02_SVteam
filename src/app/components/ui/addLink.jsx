@@ -39,7 +39,7 @@ export default function AddLink({ memLink, index, changeLink }) {
 }
 
 AddLink.propTypes = {
-  link: PropTypes.object,
-  handleChange: PropTypes.func,
+  memLink: PropTypes.object,
+  changeLink: PropTypes.func,
   index: PropTypes.number
 }
