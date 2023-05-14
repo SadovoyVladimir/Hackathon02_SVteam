@@ -8,19 +8,19 @@ import { useParams } from 'react-router-dom'
 export default function MemberPage() {
   const { users } = api
   const { memberId } = useParams()
-  const user = users.find(user => user.id === Number(memberId))
+  const user = users.find(user => user.id === memberId)
   return (
     <>
       <h1>Member page</h1>
       <div className='container'>
         <div className='row'>
           <UserImageCard
-            name={user.name}
-            img={user.img}
-            lastName={user.lastName}
-            age={user.age}
-            city={user.addres.city}
-            country={user.addres.country}
+            name = {user.name}
+            img = {user.img}
+            lastName = {user.lastName}
+            age = {user.age}
+            city = {user.addres.city}
+            country = {user.addres.country}
           />
           <UserInfoCard
             id={user.id}

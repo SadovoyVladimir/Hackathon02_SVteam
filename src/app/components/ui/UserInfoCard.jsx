@@ -27,7 +27,7 @@ const UserInfoCard = ({
                     <div className='card-skills mb-2'>
                         <b>Основные навыки: </b>
                         {skills.map(s => (
-                                <Badge key={s.id} content={s.label}/>
+                                <Badge key={s.id} content={s.label} color={s.color}/>
                         ))}
                     </div>
                     <p className='card-skills mb-2'>
@@ -70,7 +70,7 @@ const UserInfoCard = ({
 }
 
 UserInfoCard.propTypes = {
-    id: PropTypes.number,
+    id: PropTypes.string,
     about: PropTypes.array,
     skills: PropTypes.array,
     team: PropTypes.string,

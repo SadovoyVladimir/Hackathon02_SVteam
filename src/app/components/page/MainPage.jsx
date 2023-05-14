@@ -12,6 +12,7 @@ export default function MainPage() {
   return (
     <>
       <h1>Main page</h1>
+      <div className="col-md-8 justify-content-md-center shadow p-4">
       <TeamInfo
         name={team.teamName}
         img={team.img}
@@ -19,6 +20,7 @@ export default function MainPage() {
         description={team.description}
       />
       <MembersList allUsers={members} />
+      </div>
     </>
   )
 }
