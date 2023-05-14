@@ -7,7 +7,7 @@ const Badge = ({ color = 'primary', content }) => {
 
 Badge.propTypes = {
   color: PropTypes.string,
-  content: PropTypes.string.isRequired
+  content: PropTypes.string
 }
 
 export default Badge

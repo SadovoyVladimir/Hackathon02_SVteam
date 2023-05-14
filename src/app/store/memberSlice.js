@@ -49,11 +49,11 @@ function isOutdated(date) {
   return false
 }
 
-export const createUser = (payload) => async (dispatch) => {
+export const createMember = (payload) => async (dispatch) => {
   dispatch(memberCreateRequested())
   try {
-    const { data } = await memberService.create(payload)
-    dispatch(memberCreated(data))
+    dispatch(memberCreated(payload))
+    await memberService.create(payload)
   } catch (error) {
     dispatch(createMemberFailed(error.message))
   }
@@ -79,7 +79,7 @@ export const getMemberById = (memberId) => (state) => {
   if (state.members.entities) {
     let member
     for (const mem of state.members.entities) {
-      if (mem.id === +memberId) {
+      if (mem.id === memberId) {
         member = mem
         break
       }
