@@ -79,7 +79,7 @@ export const getMemberById = (memberId) => (state) => {
   if (state.members.entities) {
     let member
     for (const mem of state.members.entities) {
-      if (mem.id === +memberId) {
+      if (mem.id === memberId) {
         member = mem
         break
       }
