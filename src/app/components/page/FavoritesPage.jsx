@@ -29,8 +29,8 @@ export default function FavoritesPage() {
       city: 'city'
     },
     hackathonTeam: { id: team2.id },
-    sotialNetworcs: [
-      // {id: sotialNetworcs.id} // реализация через отдельную сущность
+    socialNetworks: [
+      // {id: socialNetworks.id} // реализация через отдельную сущность
       { id: 'number', label: 'label', url: 'URL', img: 'URL' }
     ],
     about: {
@@ -57,8 +57,8 @@ export default function FavoritesPage() {
       city: 'city'
     },
     hackathonTeam: { id: team2.id },
-    sotialNetworcs: [
-      // {id: sotialNetworcs.id} // реализация через отдельную сущность
+    socialNetworks: [
+      // {id: socialNetworks.id} // реализация через отдельную сущность
       { id: 'number2', label: 'label', url: 'URL', img: 'URL' }
     ],
     about: {
@@ -85,8 +85,8 @@ export default function FavoritesPage() {
       city: 'city'
     },
     hackathonTeam: { id: team2.id },
-    sotialNetworcs: [
-      // {id: sotialNetworcs.id} // реализация через отдельную сущность
+    socialNetworks: [
+      // {id: socialNetworks.id} // реализация через отдельную сущность
       { id: 'number3', label: 'label', url: 'URL', img: 'URL' }
     ],
     about: {

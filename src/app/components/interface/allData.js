@@ -38,7 +38,7 @@ export const member = {
 //     {id: "number", label: "label"}
 // ]
 
-// const sotialNetworcs = [
+// const socialNetworks = [
 //     {id: "number", label: "label", url: "URL", img: "URL"},
 //     {id: "number", label: "label", url: "URL", img: "URL"},
 //     {id: "number", label: "label", url: "URL", img: "URL"},
