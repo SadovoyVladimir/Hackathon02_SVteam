@@ -13,7 +13,7 @@ export default function UserCard({
   img,
   name,
   age,
-  about,
+  updateFavourites,
   socialNetworks
 }) {
   const [favourites, setFavourites] = useState(true)
@@ -23,6 +23,10 @@ export default function UserCard({
   const handleFavourite = () => {
     toggleMemberToLocalStorage(id)
     setFavourites(!favourites)
+
+    if (updateFavourites) {
+      updateFavourites()
+    }
   }
 
   const handleGoToProfile = () => {
@@ -36,19 +40,6 @@ export default function UserCard({
     }
   }, [])
 
-  // const ageTransform = (birthday) => {
-  //   const now = new Date()
-  //   // console.log(now)
-  //   const day = now.getDate()
-  //   const month = now.getMonth() + 1
-  //   const year = now.getFullYear()
-
-  //   console.log(day)
-  //   console.log(birthday)
-  // }
-
-  // ageTransform(birthday)
-
   if (configureList) {
     return (
       <div
@@ -59,13 +50,13 @@ export default function UserCard({
           marginTop: '1rem'
         }}
       >
-        <div className='logoAndButton' style={{ display: 'flex' }}>
+        <div className='logo-and-button' style={{ display: 'flex' }}>
           <Button
             buttonName={
               favourites ? (
-                <i className='bi bi-star-fill'></i>
-              ) : (
                 <i className='bi bi-star'></i>
+              ) : (
+                <i className='bi bi-star-fill'></i>
               )
             }
             buttonColor={favourites ? 'secondary' : 'success'}
@@ -112,7 +103,6 @@ export default function UserCard({
       className='card'
       style={{
         width: '20rem',
-        // alignItems: 'center',
         textAlign: 'center',
         padding: '1rem',
         display: 'flex'
@@ -128,9 +118,9 @@ export default function UserCard({
         <Button
           buttonName={
             favourites ? (
-              <i className='bi bi-star-fill'></i>
-            ) : (
               <i className='bi bi-star'></i>
+            ) : (
+              <i className='bi bi-star-fill'></i>
             )
           }
           buttonColor={favourites ? 'secondary' : 'success'}
@@ -177,6 +167,6 @@ UserCard.propTypes = {
   id: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  about: PropTypes.array.isRequired,
+  about: PropTypes.array,
   socialNetworks: PropTypes.array
 }
